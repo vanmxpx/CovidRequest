@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+    <div class="login-container">
+        <img id="login-profile-img" class="login-profile-img" src="assets/images/logo.png" />
+        <mat-divider></mat-divider>
+        <br>
+        <form class="login-form" [formGroup]="authGroup" (keydown.enter)="$event.preventDefault()">
+            <mat-form-field floatLabel="always">
+                <mat-label>Domain ID</mat-label> 
+                <input id="login" matInput formControlName="loginControl" (keydown.enter)="auth()">
+                <mat-error *ngIf="authControl('loginControl')?.hasError('required')">
+                    Username is required.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field floatLabel="always">
+                <mat-label>Password</mat-label>
+                <input id="password" matInput formControlName="passwordControl" (keydown.enter)="auth()"
+                    [type]="hide ? 'password' : 'text'">
+                <button class="hide-password-button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'">
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="authControl('passwordControl')?.hasError('required')">
+                    Password is required.
+                </mat-error>
+            </mat-form-field>
+            <br>
+        </form>
+        <mat-progress-bar class="loading" *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <button (click)="auth()" class="login-signin-button" mat-button>Sign In</button>
+    </div>
+</div>

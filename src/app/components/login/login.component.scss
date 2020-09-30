@@ -1,0 +1,76 @@
+@import 'variables';
+
+.login-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-divider {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 400px;
+    padding: 30px;
+
+    border-radius: 9px;
+    background-color: $background-color;
+    box-shadow: $shadow;
+
+    .login-profile-img {
+        cursor: pointer;
+        margin: 0 26px 10px 26px;
+    }
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        mat-form-field {
+            margin-bottom: 15px;
+            input {
+                padding-top: 5px;
+            }
+        }
+        mat-label {
+            color: $font-gray-color;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        mat-error {
+            color: $error-color;
+        }
+        .hide-password-button {
+            color: $font-gray-color;
+            font-size: 22px;
+        }
+    }
+}
+
+.login-signin-button {
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $primary-color;
+    color: $font-light-color;
+    border: none;
+  }
+
+.loading {
+    margin-bottom: 10px;
+}
+
+.unauthorized {
+  color: $error-color;
+}

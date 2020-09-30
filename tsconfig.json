@@ -15,6 +15,10 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@cov": ["src/app"],
+      "@cov/*": ["src/app/*"]
+    }
   }
 }

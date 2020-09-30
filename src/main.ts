@@ -5,8 +5,17 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
-  enableProdMode();
+    enableProdMode();
 }
 
+
+export function host(): string {
+    return environment.host;
+}
+
+const providers = [
+    { provide: 'host', useFactory: host, deps: [] }
+];
+
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+    .catch(err => console.error(err));
