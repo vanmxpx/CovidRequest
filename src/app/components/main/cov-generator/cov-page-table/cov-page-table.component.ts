@@ -16,6 +16,8 @@ import { sexes } from '@cov/shared/models/enums/sexes';
 import { LocalStorageService } from '@cov/shared/services/local-storage.service';
 import { covAnimations } from '../cov-animations';
 import { covRequestColumns } from './cov-request-columns';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import * as _ from 'lodash';
 
 @Component({
     selector: 'cov-page-table',
@@ -39,12 +41,14 @@ export class CovPageTableComponent implements AfterViewInit {
     displayedColumns = [];
     dataSource: MatTableDataSource<CovidRequest>;
     rowToEdit: CovidRequest = null;
-
+    templateRequest: CovidRequest = null;
     createNew: boolean = false;
+    saveAsTemplate: boolean = false;
     isPersonDoctor: boolean = false;
 
     constructor(
-        private lsService: LocalStorageService
+        private lsService: LocalStorageService,
+        private snackBar: MatSnackBar
     ) {
         let dc: string[] = lsService.loadFromLS(LocalStorgeKey.DispalyedColumns);
         if (!dc) {
@@ -56,7 +60,12 @@ export class CovPageTableComponent implements AfterViewInit {
             sc = ['delete', 'id'];
         }
         this.fixedColumns = sc;
-        this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+        this.dataSource = new MatTableDataSource(this.requests);
+
+        this.rowToEdit = new CovidRequest(0);
+
+        this.templateRequest = lsService.loadFromLS(LocalStorgeKey.RequestTemplate);
+        this.createRequestGroup();
     }
 
     ngAfterViewInit(): void {
@@ -66,48 +75,125 @@ export class CovPageTableComponent implements AfterViewInit {
     openEditor(request: CovidRequest): void {
         if (request === null) {
             request = new CovidRequest(this.requests.length);
+            if (this.templateRequest) {
+                request = { ...request, ...this.templateRequest };
+            }
         }
-        this.rowToEdit = request;
+        this.rowToEdit = _.cloneDeep(request);
+        this.createRequestGroup();
         this.mode = MainTableMode.EditRow;
     }
     closeEditor(): void {
-        if (!confirm('Несохраненные изменения будут отменены. Продолжить?')) {
+        if (this.requestForm.dirty && !confirm('Несохраненные изменения будут отменены. Продолжить?')) {
             return;
         }
 
         this.rowToEdit = null;
         this.mode = MainTableMode.View;
     }
+
+    save(): void {
+        this.requestForm.markAllAsTouched();
+        this.requestForm.updateValueAndValidity();
+        if (!this.requestForm.valid) {
+            this.snackBar.open('Будь ласка, виправте усi помилки.' , 'OK', {
+                duration: 5000
+            });
+            return;
+        }
+        this.rowToEdit = { id: this.rowToEdit.id, isDoctor: this.isPersonDoctor, ...this.requestForm.value };
+        let selectedItemIndex = this.requests.findIndex(r => r.id === this.rowToEdit.id);
+        if (selectedItemIndex !== -1) {
+            this.requests[selectedItemIndex] = _.cloneDeep(this.rowToEdit);
+        } else {
+            this.requests.push(_.cloneDeep(this.rowToEdit));
+        }
+        this.dataSource.data = this.requests;
+        if (this.saveAsTemplate) {
+            this.saveTemplate(this.rowToEdit);
+            this.saveAsTemplate = false;
+        }
+        this.snackBar.open('Збережено.' , 'OK', {
+            duration: 5000
+        });
+        if (this.createNew) {
+            this.openEditor(null);
+        } else {
+            this.mode = MainTableMode.View;
+        }
+
+    }
+
     deleteRequest(request: CovidRequest) {
-        if (!confirm('Удаленный запрос невозможно будет вернуть. Продолжить?')) {
+        if (!confirm('Видалений запрос неможливо буде повернути. Продовжити?')) {
             return;
         }
         let deleteIndex = this.requests.findIndex(r => r.id === request.id);
-        this.requests = this.requests.slice(deleteIndex, 1);
+        this.requests.splice(deleteIndex, 1);
         this.dataSource.data = this.requests;
     }
     drop(event: CdkDragDrop<string[]>) {
         moveItemInArray(this.displayedColumns, event.previousIndex + 2, event.currentIndex + 2); // 2 columst at start is not draggble
-        this.saveDisplayedColumns();
+        this.lsService.saveToLS(LocalStorgeKey.DispalyedColumns, this.displayedColumns);
     }
 
     resetTable(): void {
+        if (!confirm('Сконфiгурований вид таблицi неможливо буде повернути. Продовжити?')) {
+            return;
+        }
         this.displayedColumns = ['delete', 'id', ...covRequestColumns];
         this.fixedColumns = ['delete', 'id'];
-        this.saveStaticColumns();
-        this.saveDisplayedColumns();
+        this.lsService.saveToLS(LocalStorgeKey.StaticColumns, this.fixedColumns);
+        this.lsService.saveToLS(LocalStorgeKey.DispalyedColumns, this.displayedColumns);
     }
 
-    saveStaticColumns(): void {
+    saveStaticColumns(column: string): void {
+        let index = this.fixedColumns.findIndex(c => c === column);
+        if (index !== -1) {
+            this.fixedColumns.splice(index, 1);
+        } else {
+            this.fixedColumns.push(column);
+        }
         this.lsService.saveToLS(LocalStorgeKey.StaticColumns, this.fixedColumns);
     }
-    saveDisplayedColumns(): void {
+    saveDisplayedColumns(column: string): void {
+        let index = this.displayedColumns.findIndex(c => c === column);
+        if (index !== -1) {
+            this.displayedColumns.splice(index, 1);
+        } else {
+            let oldPosition = this.covRequestColumns.findIndex(c => c === column) + 2; // dont forger two udeleteble columns
+            let lastIndex = this.displayedColumns.length - 1;
+            this.displayedColumns.splice(oldPosition > lastIndex ?  lastIndex : oldPosition , 0, column);
+        }
         this.lsService.saveToLS(LocalStorgeKey.DispalyedColumns, this.displayedColumns);
     }
     isSticky(id: string) {
         return this.fixedColumns.includes(id);
     }
+    deleteTemplate(): void {
+        if (!confirm('Ви дiйсно бажаєте видалити шаблон?')) {
+            return;
+        }
+        this.templateRequest = null;
+        this.lsService.saveToLS(LocalStorgeKey.RequestTemplate, this.templateRequest);
+        this.snackBar.open('Шаблон видалено.' , 'OK', {
+            duration: 5000
+        });
+    }
 
+    saveTemplate(request: CovidRequest): void {
+        this.templateRequest = ({
+            city: request.city,
+            zoz: request.zoz,
+            zozAddress: request.zozAddress,
+            senderFullName: request.senderFullName,
+            senderProfession: request.senderProfession
+        } as any);
+        this.lsService.saveToLS(LocalStorgeKey.RequestTemplate, this.templateRequest);
+        this.snackBar.open('Збережено як шаблон.' , 'OK', {
+            duration: 5000
+        });
+    }
     calculateAnimation(position: string): 'opened' | 'closeLeft' | 'closeRight' {
         if (position === 'left') {
             if (this.mode === MainTableMode.View) {
@@ -130,7 +216,7 @@ export class CovPageTableComponent implements AfterViewInit {
     requestControl(value: string): AbstractControl | null {
         return this.requestForm ? this.requestForm.get(value) : null;
     }
-    createRequestGroup(request: CovidRequest) {
+    createRequestGroup() {
         this.requestForm = new FormGroup({
             city: new FormControl({
                 value: this.rowToEdit.city,
@@ -188,6 +274,10 @@ export class CovPageTableComponent implements AfterViewInit {
                 value: this.rowToEdit.patientBirthDate,
                 disabled: false
             }, [Validators.required, ValidatorsExtensions.empty]),
+            patientAge: new FormControl({
+                value: this.rowToEdit.patientAge,
+                disabled: true
+            }),
             requestReason: new FormControl({
                 value: this.rowToEdit.requestReason,
                 disabled: false
@@ -203,7 +293,7 @@ export class CovPageTableComponent implements AfterViewInit {
             additinalInfo: new FormControl({
                 value: this.rowToEdit.additinalInfo,
                 disabled: false
-            }, [Validators.required, ValidatorsExtensions.empty]),
+            }),
             doctorProfession: new FormControl({
                 value: this.rowToEdit.doctorProfession,
                 disabled: false
@@ -216,6 +306,13 @@ export class CovPageTableComponent implements AfterViewInit {
                 value: this.rowToEdit.diagnos,
                 disabled: false
             }, [Validators.required, ValidatorsExtensions.empty]),
+        });
+
+        this.requestControl('patientBirthDate').valueChanges.subscribe(value => {
+            if (value) {
+                let age = new Number((new Date().getTime() - new Date(value).getTime()) / 31536000000).toFixed(0);
+                this.requestControl('patientAge').setValue(age);
+            }
         });
     }
     //#endregion

@@ -8,15 +8,16 @@
                         <button mat-icon-button [matMenuTriggerFor]="displayColMenu" matTooltip="Видимi колонки">
                             <mat-icon>filter_alt</mat-icon>
                         </button>
-                        <mat-menu #displayColMenu="matMenu" >
-                            <mat-selection-list (onModelChange)="saveDisplayedColumns()" checkboxPosition="before" [(ngModel)]="displayedColumns">
+                        <mat-menu #displayColMenu="matMenu">
+                            <mat-selection-list  checkboxPosition="before"
+                                [ngModel]="displayedColumns">
                                 <mat-list-option disabled value="delete">
                                     Видалити
                                 </mat-list-option>
                                 <mat-list-option disabled value="id">
                                     No.
                                 </mat-list-option>
-                                <mat-list-option *ngFor="let column of covRequestColumns" [value]="column">
+                                <mat-list-option (click)="saveDisplayedColumns(column)" *ngFor="let column of covRequestColumns" [value]="column">
                                     {{ column }}
                                 </mat-list-option>
                             </mat-selection-list>
@@ -25,20 +26,21 @@
                             <mat-icon>push_pin</mat-icon>
                         </button>
                         <mat-menu #pinMenu="matMenu">
-                            <mat-selection-list checkboxPosition="before" (onModelChange)="saveStaticColumns()" [(ngModel)]="fixedColumns">
+                            <mat-selection-list checkboxPosition="before"
+                                [ngModel]="fixedColumns">
                                 <mat-list-option disabled value="delete">
                                     Видалити
                                 </mat-list-option>
                                 <mat-list-option disabled value="id">
                                     No.
                                 </mat-list-option>
-                                <mat-list-option *ngFor="let column of covRequestColumns" [value]="column">
+                                <mat-list-option (click)="saveStaticColumns(column)" *ngFor="let column of covRequestColumns" [value]="column">
                                     {{ column }}
                                 </mat-list-option>
                             </mat-selection-list>
                         </mat-menu>
                     </div>
-                    
+
                 </div>
                 <div class="table-control-table-wrapper">
                     <table mat-table matSort [dataSource]="dataSource" cdkDropList cdkDropListOrientation="horizontal"
@@ -59,140 +61,184 @@
                         </ng-container>
 
                         <ng-container matColumnDef="city" [sticky]="isSticky('city')" [stickyEnd]="isSticky('city')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Місто/Район </th>
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef>
+                                Місто/Район </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.city}} </td>
                         </ng-container>
 
                         <ng-container matColumnDef="zoz" [sticky]="isSticky('zoz')" [stickyEnd]="isSticky('zoz')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> ЗОЗ </th>
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> ЗОЗ
+                            </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.zoz}} </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="zozAddress" [sticky]="isSticky('zozAddress')" [stickyEnd]="isSticky('zozAddress')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Адреса ЗОЗ </th>
+                        <ng-container matColumnDef="zozAddress" [sticky]="isSticky('zozAddress')"
+                            [stickyEnd]="isSticky('zozAddress')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Адреса
+                                ЗОЗ </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.zozAddress}} </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="registrationDate" [sticky]="isSticky('registrationDate')" [stickyEnd]="isSticky('registrationDate')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Реєстрація </th>
-                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.registrationDate}}
+                        <ng-container matColumnDef="registrationDate" [sticky]="isSticky('registrationDate')"
+                            [stickyEnd]="isSticky('registrationDate')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef>
+                                Реєстрація </th>
+                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.registrationDate.toLocaleDateString()}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="senderFullName" [sticky]="isSticky('senderFullName')" [stickyEnd]="isSticky('senderFullName')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> ПІБ </th>
+                        <ng-container matColumnDef="senderFullName" [sticky]="isSticky('senderFullName')"
+                            [stickyEnd]="isSticky('senderFullName')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> ПІБ
+                            </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.senderFullName}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="senderProfession" [sticky]="isSticky('senderProfession')" [stickyEnd]="isSticky('senderProfession')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Посада </th>
+                        <ng-container matColumnDef="senderProfession" [sticky]="isSticky('senderProfession')"
+                            [stickyEnd]="isSticky('senderProfession')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Посада
+                            </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.senderProfession}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="requestReason" [sticky]="isSticky('requestReason')" [stickyEnd]="isSticky('requestReason')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Причина </th>
+                        <ng-container matColumnDef="requestReason" [sticky]="isSticky('requestReason')"
+                            [stickyEnd]="isSticky('requestReason')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef>
+                                Причина </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.requestReason}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="sickPatientFullName" [sticky]="isSticky('sickPatientFullName')" [stickyEnd]="isSticky('sickPatientFullName')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Хворий </th>
+                        <ng-container matColumnDef="sickPatientFullName" [sticky]="isSticky('sickPatientFullName')"
+                            [stickyEnd]="isSticky('sickPatientFullName')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Хворий
+                            </th>
                             <td class="padding-column" mat-cell *matCellDef="let element">
                                 {{element.sickPatientFullName}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="sickPatientAddress" [sticky]="isSticky('sickPatientAddress')" [stickyEnd]="isSticky('sickPatientAddress')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Адреса хворого </th>
+                        <ng-container matColumnDef="sickPatientAddress" [sticky]="isSticky('sickPatientAddress')"
+                            [stickyEnd]="isSticky('sickPatientAddress')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Адреса
+                                хворого </th>
                             <td class="padding-column" mat-cell *matCellDef="let element">
                                 {{element.sickPatientAddress}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="sickPatienDate" [sticky]="isSticky('sickPatienDate')" [stickyEnd]="isSticky('sickPatienDate')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Взяття зразку </th>
-                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.sickPatienDate}}
+                        <ng-container matColumnDef="sickPatienDate" [sticky]="isSticky('sickPatienDate')"
+                            [stickyEnd]="isSticky('sickPatienDate')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Взяття
+                                зразку </th>
+                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.sickPatienDate.toLocaleDateString()}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="patientLastName" [sticky]="isSticky('patientLastName')" [stickyEnd]="isSticky('patientLastName')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Прізвище пацієнта
+                        <ng-container matColumnDef="patientLastName" [sticky]="isSticky('patientLastName')"
+                            [stickyEnd]="isSticky('patientLastName')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef>
+                                Прізвище пацієнта
                             </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientLastName}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="patientFirstName" [sticky]="isSticky('patientFirstName')" [stickyEnd]="isSticky('patientFirstName')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Ім'я пацієнта </th>
+                        <ng-container matColumnDef="patientFirstName" [sticky]="isSticky('patientFirstName')"
+                            [stickyEnd]="isSticky('patientFirstName')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Ім'я
+                                пацієнта </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientFirstName}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="patientMiddleName" [sticky]="isSticky('patientMiddleName')" [stickyEnd]="isSticky('patientMiddleName')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> По батькові пацієнта
+                        <ng-container matColumnDef="patientMiddleName" [sticky]="isSticky('patientMiddleName')"
+                            [stickyEnd]="isSticky('patientMiddleName')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> По
+                                батькові пацієнта
                             </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientMiddleName}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="patientSex" [sticky]="isSticky('patientSex')" [stickyEnd]="isSticky('patientSex')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Стать пацієнта</th>
+                        <ng-container matColumnDef="patientSex" [sticky]="isSticky('patientSex')"
+                            [stickyEnd]="isSticky('patientSex')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Стать
+                                пацієнта</th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientSex}} </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="patientBirthDate" [sticky]="isSticky('patientBirthDate')" [stickyEnd]="isSticky('patientBirthDate')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Дата народження
+                        <ng-container matColumnDef="patientBirthDate" [sticky]="isSticky('patientBirthDate')"
+                            [stickyEnd]="isSticky('patientBirthDate')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Дата
+                                народження
                                 пацієнта
                             </th>
-                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientBirthDate}}
+                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientBirthDate.toLocaleDateString()}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="patientAge" [sticky]="isSticky('patientAge')" [stickyEnd]="isSticky('patientAge')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Вік пацієнта</th>
+                        <ng-container matColumnDef="patientAge" [sticky]="isSticky('patientAge')"
+                            [stickyEnd]="isSticky('patientAge')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Вік
+                                пацієнта</th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientAge}} </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="patientCity" [sticky]="isSticky('patientCity')" [stickyEnd]="isSticky('patientCity')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Місто мешкання</th>
+                        <ng-container matColumnDef="patientCity" [sticky]="isSticky('patientCity')"
+                            [stickyEnd]="isSticky('patientCity')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Місто
+                                мешкання</th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientCity}} </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="patientAddress" [sticky]="isSticky('patientAddress')" [stickyEnd]="isSticky('patientAddress')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Адреса пацієнта</th>
+                        <ng-container matColumnDef="patientAddress" [sticky]="isSticky('patientAddress')"
+                            [stickyEnd]="isSticky('patientAddress')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Адреса
+                                пацієнта</th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientAddress}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="additinalInfo" [sticky]="isSticky('additinalInfo')" [stickyEnd]="isSticky('additinalInfo')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Додаткова інформація
+                        <ng-container matColumnDef="additinalInfo" [sticky]="isSticky('additinalInfo')"
+                            [stickyEnd]="isSticky('additinalInfo')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef>
+                                Додаткова інформація
                             </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.additinalInfo}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="isDoctor" [sticky]="isSticky('isDoctor')" [stickyEnd]="isSticky('isDoctor')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Мед. працівник </th>
+                        <ng-container matColumnDef="isDoctor" [sticky]="isSticky('isDoctor')"
+                            [stickyEnd]="isSticky('isDoctor')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Мед.
+                                працівник </th>
                             <td class="padding-column" mat-cell *matCellDef="let element">
                                 {{element.isDoctor ? "Так" : "Ні"}} </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="doctorProfession" [sticky]="isSticky('doctorProfession')" [stickyEnd]="isSticky('doctorProfession')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Мед. посада </th>
+                        <ng-container matColumnDef="doctorProfession" [sticky]="isSticky('doctorProfession')"
+                            [stickyEnd]="isSticky('doctorProfession')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Мед.
+                                посада </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.doctorProfession}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="materialType" [sticky]="isSticky('materialType')" [stickyEnd]="isSticky('materialType')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Матеріал </th>
+                        <ng-container matColumnDef="materialType" [sticky]="isSticky('materialType')"
+                            [stickyEnd]="isSticky('materialType')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef>
+                                Матеріал </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.materialType}}
                             </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="diagnos" [sticky]="isSticky('diagnos')" [stickyEnd]="isSticky('diagnos')">
-                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Діагноз </th>
+                        <ng-container matColumnDef="diagnos" [sticky]="isSticky('diagnos')"
+                            [stickyEnd]="isSticky('diagnos')">
+                            <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef>
+                                Діагноз </th>
                             <td class="padding-column" mat-cell *matCellDef="let element"> {{element.diagnos}} </td>
                         </ng-container>
 
@@ -202,11 +248,20 @@
                 </div>
             </div>
             <div class="table-control-switcher">
-                <button mat-icon-button [class.close]="mode === MainTableMode.EditRow"
-                    [matTooltip]="mode === MainTableMode.View ? 'Добавить заявку' : 'Закрыть'" matTooltipPosilion="left"
+                <div class="placeholder">
+                    <mat-icon *ngIf="mode === MainTableMode.EditRow" [matBadge]="this.requests.length"
+                        matBadgeColor="warn">toc</mat-icon>
+                </div>
+                <button class="switcher-button" mat-icon-button [class.close]="mode === MainTableMode.EditRow"
+                    [matTooltip]="mode === MainTableMode.View ? 'Додати заявку' : 'Вiдмiнити'" matTooltipPosilion="left"
                     (click)="mode === MainTableMode.View ? openEditor(null) : closeEditor()">
                     <mat-icon>add</mat-icon>
                 </button>
+                <div class="placeholder">                   
+                    <button mat-icon-button color="warn" (click)="deleteTemplate()" *ngIf="mode === MainTableMode.EditRow" [disabled]="!this.templateRequest">
+                        <mat-icon matTooltip="Очистити шаблон" >delete_forever</mat-icon>
+                    </button>
+                </div>
             </div>
             <div class="table-control-editor-wrapper" [@changePane]="{ value: calculateAnimation('right') }">
                 <div class="table-control-editor">
@@ -215,9 +270,12 @@
                             <h4 class="mat-typography">Заклад, що подає заявку</h4>
                             <mat-form-field appearance="fill">
                                 <mat-label>Місто/Район</mat-label>
-                                    <mat-select formControlName="city">
+                                <mat-select formControlName="city">
                                     <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
                                 </mat-select>
+                                <mat-error *ngIf="requestControl('city')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <!-- <mat-form-field appearance="fill">
                                 <mat-label>№ бригади</mat-label>
@@ -226,14 +284,23 @@
                             <mat-form-field appearance="fill">
                                 <mat-label>ЗОЗ</mat-label>
                                 <input formControlName="zoz" matInput placeholder="Заклад охорони здоров'я">
+                                <mat-error *ngIf="requestControl('zoz')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field class="big-size" appearance="fill">
                                 <mat-label>Адреса ЗОЗ</mat-label>
                                 <input formControlName="zozAddress" matInput>
+                                <mat-error *ngIf="requestControl('zozAddress')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Дата реєстрації даних</mat-label>
                                 <input formControlName="registrationDate" matInput [matDatepicker]="regDatePicker">
+                                <mat-error *ngIf="requestControl('registrationDate')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                                 <mat-datepicker-toggle matSuffix [for]="regDatePicker"></mat-datepicker-toggle>
                                 <mat-datepicker #regDatePicker></mat-datepicker>
                             </mat-form-field>
@@ -244,33 +311,51 @@
                             <mat-form-field class="big-size" appearance="fill">
                                 <mat-label>ПІБ</mat-label>
                                 <input formControlName="senderFullName" matInput>
+                                <mat-error *ngIf="requestControl('senderFullName')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Посада</mat-label>
-                                    <mat-select formControlName="senderProfession">
+                                <mat-select formControlName="senderProfession">
                                     <mat-option *ngFor="let doctor of doctorTypes" [value]="doctor">{{ doctor }}
                                     </mat-option>
                                 </mat-select>
+                                <mat-error *ngIf="requestControl('senderProfession')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field class="big-size" appearance="fill">
                                 <mat-label>Причина забору біоматеріалу</mat-label>
-                                    <mat-select formControlName="requestReason">
+                                <mat-select formControlName="requestReason">
                                     <mat-option *ngFor="let reason of requestReasons" [value]="reason">{{ reason }}
                                     </mat-option>
                                 </mat-select>
+                                <mat-error *ngIf="requestControl('requestReason')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <h4 class="mat-typography">Інформація про хворого пацієнта</h4>
                             <mat-form-field class="big-size" appearance="fill">
                                 <mat-label>ПІБ</mat-label>
                                 <input formControlName="sickPatientFullName" matInput>
+                                <mat-error *ngIf="requestControl('sickPatientFullName')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field class="big-size" appearance="fill">
                                 <mat-label>Адреса, тощо</mat-label>
                                 <textarea formControlName="sickPatientAddress" matInput></textarea>
+                                <mat-error *ngIf="requestControl('sickPatientAddress')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Дата взяття зразку</mat-label>
                                 <input formControlName="sickPatienDate" matInput [matDatepicker]="testDatePicker">
+                                <mat-error *ngIf="requestControl('sickPatienDate')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                                 <mat-datepicker-toggle matSuffix [for]="testDatePicker"></mat-datepicker-toggle>
                                 <mat-datepicker #testDatePicker></mat-datepicker>
                             </mat-form-field>
@@ -281,40 +366,61 @@
                             <mat-form-field appearance="fill">
                                 <mat-label>Прізвище</mat-label>
                                 <input formControlName="patientLastName" matInput>
+                                <mat-error *ngIf="requestControl('patientLastName')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Ім'я</mat-label>
                                 <input formControlName="patientFirstName" matInput>
+                                <mat-error *ngIf="requestControl('patientFirstName')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>По батькові</mat-label>
                                 <input formControlName="patientMiddleName" matInput>
+                                <mat-error *ngIf="requestControl('patientMiddleName')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Стать</mat-label>
-                                    <mat-select formControlName="patientSex">
+                                <mat-select formControlName="patientSex">
                                     <mat-option *ngFor="let sex of sexes" [value]="sex">{{ sex }}</mat-option>
                                 </mat-select>
+                                <mat-error *ngIf="requestControl('patientSex')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Дата народження</mat-label>
                                 <input formControlName="patientBirthDate" matInput [matDatepicker]="patientBirthPicker">
+                                <mat-error *ngIf="requestControl('patientBirthDate')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                                 <mat-datepicker-toggle matSuffix [for]="patientBirthPicker"></mat-datepicker-toggle>
                                 <mat-datepicker #patientBirthPicker></mat-datepicker>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Вік</mat-label>
-                                <input [value]="this.rowToEdit?.patientAge" disabled="true" matInput type="number" value="">
+                                <input formControlName="patientAge" matInput>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Місто/Район мешкання</mat-label>
-                                    <mat-select formControlName="patientCity">
+                                <mat-select formControlName="patientCity">
                                     <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
                                 </mat-select>
+                                <mat-error *ngIf="requestControl('patientCity')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field class="big-size" appearance="fill">
                                 <mat-label>Адреса</mat-label>
                                 <textarea formControlName="patientAddress" matInput></textarea>
+                                <mat-error *ngIf="requestControl('patientAddress')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field class="big-size" appearance="fill">
                                 <mat-label>Додаткова інформація</mat-label>
@@ -324,7 +430,8 @@
                         <div class="form-row">
                             <section *ngIf="this.rowToEdit">
                                 <!-- <mat-label>Медичний працівник</mat-label> -->
-                                <mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="this.rowToEdit.isDoctor">
+                                <mat-checkbox [ngModelOptions]="{standalone: true}"
+                                    [(ngModel)]="this.rowToEdit.isDoctor">
                                     Медичний працівник</mat-checkbox>
                             </section>
                             <mat-form-field *ngIf="this.rowToEdit?.isDoctor" appearance="fill">
@@ -337,17 +444,23 @@
                             <h4 class="mat-typography">Медична інформація</h4>
                             <mat-form-field appearance="fill">
                                 <mat-label>Найменування матеріалу</mat-label>
-                                    <mat-select formControlName="materialType">
+                                <mat-select formControlName="materialType">
                                     <mat-option *ngFor="let type of materialTypes" [value]="type">{{ type }}
                                     </mat-option>
                                 </mat-select>
+                                <mat-error *ngIf="requestControl('materialType')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Діагноз</mat-label>
-                                    <mat-select formControlName="diagnos">
+                                <mat-select formControlName="diagnos">
                                     <mat-option *ngFor="let diagnos of diagnoses" [value]="diagnos">{{ diagnos }}
                                     </mat-option>
                                 </mat-select>
+                                <mat-error *ngIf="requestControl('diagnos')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
                             </mat-form-field>
                         </div>
                         <mat-divider></mat-divider>
@@ -355,9 +468,12 @@
                 </div>
 
                 <div class="action-buttons">
-                    <mat-checkbox class="action" [(ngModel)]="createNew">Створити ще одну заявку</mat-checkbox>
-                    <button class="action" color="warn" mat-raised-button>Відмінити</button>
-                    <button class="action save" color="primary" mat-raised-button>Зберігти</button>
+                    <mat-checkbox class="action" [(ngModel)]="saveAsTemplate">Зберегти як шаблон</mat-checkbox>
+                    <div>
+                        <mat-checkbox class="action" [(ngModel)]="createNew">Створити ще одну заявку</mat-checkbox>
+                        <button class="action" color="warn" (click)="closeEditor()" mat-raised-button>Відмінити</button>
+                        <button class="action save" color="primary" (click)="save()" mat-raised-button>Зберігти</button>
+                    </div>
                 </div>
             </div>
 

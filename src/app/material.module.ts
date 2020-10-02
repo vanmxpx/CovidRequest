@@ -24,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 import {MatTabsModule} from '@angular/material/tabs';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
     exports: [
@@ -51,7 +52,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         MatSortModule,
         DragDropModule,
         MatTabsModule,
-        MatRippleModule
+        MatRippleModule,
+        MatBadgeModule
     ],
     providers: [
         { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'never' } },

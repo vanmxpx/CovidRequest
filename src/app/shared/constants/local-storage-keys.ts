@@ -1,5 +1,6 @@
 export enum LocalStorgeKey {
     CurrentUser = 'currentUser',
     DispalyedColumns = 'dispalyedColumns',
-    StaticColumns = 'staticColumns'
+    StaticColumns = 'staticColumns',
+    RequestTemplate = 'requestTemplate'
 }
