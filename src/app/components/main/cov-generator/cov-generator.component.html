@@ -7,20 +7,20 @@
                     <div class="cov-generator-navigation-bar-button"
                         [class.selected]="selectedPage === GeneratorPage.Table" matTooltip="Список"
                         matTooltipPosition="right" (click)="selectPage(GeneratorPage.Table)">
-                        1
+                        <mat-icon>toc</mat-icon>
                     </div>
                     <div class="cov-generator-navigation-bar-item-separator"></div>
                     <div class="cov-generator-navigation-bar-button"
                         [class.selected]="selectedPage === GeneratorPage.Print" matTooltip="Печать"
                         matTooltipPosition="right" (click)="selectPage(GeneratorPage.Print)">
-                        2
+                        <mat-icon>description</mat-icon>
                     </div>
-                    <div class="cov-generator-navigation-bar-item-separator"></div>
+                    <!-- <div class="cov-generator-navigation-bar-item-separator"></div>
                     <div class="cov-generator-navigation-bar-button"
                         [class.selected]="selectedPage === GeneratorPage.Result" matTooltip="Вывод"
                         matTooltipPosition="right" (click)="selectPage(GeneratorPage.Result)">
                         3
-                    </div>
+                    </div> -->
                 </div>
                 <div class="placeholder"></div>
             </div>
@@ -32,20 +32,21 @@
                 [@translateTab]="{
                     value: calculatePosition(0)
                 }">
-                <cov-page-table></cov-page-table>
+                <cov-page-table [(requests)]="requests"></cov-page-table>
             </div>
             <div class="cov-generator-page second-table" [class.selected]="selectedPage === GeneratorPage.Print"
                 [@translateTab]="{
                     value: calculatePosition(1)
                 }">
-                <cov-page-secondary-table></cov-page-secondary-table>
+                <!-- <cov-page-secondary-table></cov-page-secondary-table> -->
+                <cov-page-print [(requests)]="requests"></cov-page-print>
             </div>
-            <div class="cov-generator-page print" [class.selected]="selectedPage === GeneratorPage.Result"
+            <!-- <div class="cov-generator-page print" [class.selected]="selectedPage === GeneratorPage.Result"
                 [@translateTab]="{
                     value: calculatePosition(2)
                 }">
-                <cov-page-print></cov-page-print>
-            </div>
+                <cov-page-print [(requests)]="requests"></cov-page-print>
+            </div> -->
         </div>
 
     </mat-drawer-content>

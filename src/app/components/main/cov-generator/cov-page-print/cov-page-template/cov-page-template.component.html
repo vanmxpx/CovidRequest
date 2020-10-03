@@ -1,0 +1,815 @@
+<script>
+    function exportHTML(){
+       var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+            "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+            "xmlns='http://www.w3.org/TR/REC-html40'>"+
+            "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+       var footer = "</body></html>";
+       var sourceHTML = header+document.getElementById("source-html").innerHTML+footer;
+       
+       var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+       var fileDownload = document.createElement("a");
+       document.body.appendChild(fileDownload);
+       fileDownload.href = source;
+       fileDownload.download = 'document.doc';
+       fileDownload.click();
+       document.body.removeChild(fileDownload);
+    }
+</script> 
+
+<div [style.transform]="'scale('+scale+')'" id="source-html" class=WordSection1>
+    <div class="document-content">
+<p class=MsoNormal align=center style='margin-top:0cm;
+margin-bottom:0cm;margin-bottom:.0001pt;text-align:center;
+text-indent:-3.95pt'><b><span lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;
+letter-spacing:-.05pt'>Направлення</span></b><b><span lang=UK style='font-size:
+13.5pt;font-family:"Times New Roman",serif;letter-spacing:.7pt'>&nbsp;</span></b><b><span
+lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;letter-spacing:
+-.05pt'>на</span></b><b><span lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;
+letter-spacing:.7pt'>&nbsp;</span></b><b><span lang=UK style='font-size:13.5pt;
+font-family:"Times New Roman",serif;letter-spacing:-.05pt'>лабораторне</span></b><b><span
+lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;letter-spacing:
+.6pt'>&nbsp;</span></b><b><span lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;
+letter-spacing:-.05pt'>тестування</span></b><b><span lang=UK style='font-size:
+13.5pt;font-family:"Times New Roman",serif;letter-spacing:.65pt'> матеріалу від
+</span></b><b><span lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;
+letter-spacing:-.05pt'>особи,</span></b><b><span lang=UK style='font-size:13.5pt;
+font-family:"Times New Roman",serif;letter-spacing:2.55pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;
+margin-bottom:0cm;margin-bottom:.0001pt;text-align:center;
+text-indent:-3.95pt'><b><span lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;
+letter-spacing:-.1pt'>яка</span></b><b><span lang=UK style='font-size:13.5pt;
+font-family:"Times New Roman",serif;letter-spacing:.85pt'>&nbsp;</span></b><b><span
+lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;letter-spacing:
+-.05pt'>відповідає</span></b><b><span lang=UK style='font-size:13.5pt;
+font-family:"Times New Roman",serif;letter-spacing:.65pt'>&nbsp;</span></b><b><span
+lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;letter-spacing:
+-.05pt'>визначенню</span></b><b><span lang=UK style='font-size:13.5pt;
+font-family:"Times New Roman",serif;letter-spacing:.65pt'>&nbsp;</span></b><b><span
+lang=UK style='font-size:13.5pt;font-family:"Times New Roman",serif;letter-spacing:
+-.05pt'>випадку</span></b><b><span lang=UK style='font-size:13.5pt;font-family:
+"Times New Roman",serif;letter-spacing:.65pt'>&nbsp;</span></b><b><span lang=UK
+style='font-size:13.5pt;font-family:"Times New Roman",serif;letter-spacing:
+-.05pt'>COVID-19</span></b></p>
+
+<p class=MsoNormal style='margin-top:.3pt'><b><span lang=UK style='font-size:
+9.5pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<table class=TableNormal1 border=1 cellspacing=0 cellpadding=0
+ style='margin: auto;border-collapse:collapse;border:none'>
+ <tbody>
+ <tr style='height:21.85pt'>
+  <td width=692 colspan=8 valign=top style='width:510.35pt;border:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:21.85pt'>
+  <p class=TableParagraph style='margin-top:.2pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:68.1pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Інформація</span></b><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:.85pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>про</span></b><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:.85pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>установу,</span></b><b><span lang=UK style='font-size:
+  10.5pt;font-family:"Times New Roman",serif;letter-spacing:.95pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif'>що<span
+  style='letter-spacing:.85pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>передає</span><span
+  style='letter-spacing:.95pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>запит</span><span
+  style='letter-spacing:.85pt'>&nbsp;</span>на<span style='letter-spacing:.65pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>лабораторне</span><span style='letter-spacing:
+  .9pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>дослідження</span></span></b></p>
+  </td>
+ </tr>
+ <tr style='height:26.65pt'>
+  <td width=337 colspan=5 valign=top style='width:252.45pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=TableParagraph style='margin-top:.05pt;margin-right:7.65pt;
+  margin-bottom:0cm;margin-left:5.2pt;margin-bottom:.0001pt;line-height:102%'><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Назва</span></b><b><span lang=UK style='font-size:
+  10.5pt;line-height:102%;font-family:"Times New Roman",serif;letter-spacing:
+  .75pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;line-height:102%;
+  font-family:"Times New Roman",serif;letter-spacing:-.05pt'>установи</span></b><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:.8pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif;letter-spacing:-.05pt'>(лікарні,</span></b><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:.9pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif;letter-spacing:-.05pt'>лабораторії</span></b><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:.9pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif'>або<span
+  style='letter-spacing:.75pt'>&nbsp;</span>іншої<span style='letter-spacing:1.85pt'>
+  </span><span style='letter-spacing:-.05pt'>установи),</span><span
+  style='letter-spacing:.9pt'>&nbsp;</span>що<span style='letter-spacing:1.05pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>направляє</span><span style='letter-spacing:
+  1.0pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>зразок</span></span></b></p>
+  </td>
+  <td width=355 colspan=3 valign=top style='width:257.9pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=MsoNormal><span lang=UK> </span>{{request.zoz}}</p>
+  </td>
+ </tr>
+ <tr style='height:13.55pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.05pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif'>Лікар</span></b></p>
+  </td>
+  <td width=195 colspan=3 valign=top style='width:146.3pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal>{{request.senderFullName}}</p>
+  </td>
+  <td width=355 colspan=3 valign=top style='width:257.9pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:13.55pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.05pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Адреса</span></b></p>
+  </td>
+  <td width=550 colspan=6 valign=top style='width:404.2pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal>{{request.zozAddress}}</p>
+  </td>
+ </tr>
+ <tr style='height:13.55pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.05pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Номер</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:1.55pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>телефону</span></b></p>
+  </td>
+  <td width=195 colspan=3 valign=top style='width:146.3pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+  <td width=355 colspan=3 valign=top style='width:257.9pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:24.95pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:24.95pt'>
+  <p class=TableParagraph style='margin-top:0cm;margin-right:34.5pt;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt;line-height:102%'><span lang=UK
+  style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Визначення</span><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif;letter-spacing:1.2pt'>&nbsp;</span><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>випадку:</span></p>
+  </td>
+  <td width=550 colspan=6 valign=top style='width:404.2pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:24.95pt'>
+  <p class=MsoNormal style='line-height:13.0pt'><span style='font-size:10.5pt;
+  font-family:"Times New Roman",serif'>{{request.diagnos}}</span></p>
+  </td>
+ </tr>
+ <tr style='height:20.5pt'>
+  <td width=692 colspan=8 valign=top style='width:510.35pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:20.5pt'>
+  <p class=TableParagraph align=center style='margin-top:.2pt;margin-right:
+  0cm;margin-bottom:0cm;margin-left:15.65pt;margin-bottom:.0001pt;text-align:
+  center'><b><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Інформація</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  1.35pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:-.1pt'>про</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  1.15pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:-.05pt'>пацієнта</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:13.7pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.7pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Ім’я</span></b></p>
+  </td>
+  <td width=195 colspan=3 valign=top style='width:146.3pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.7pt'>
+  <p class=MsoNormal>{{request.patientFirstName}}</p>
+  </td>
+  <td width=123 valign=top style='width:91.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.7pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.05pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Прізвище</span></b></p>
+  </td>
+  <td width=233 colspan=2 valign=top style='width:166.0pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.7pt'>
+  <p class=MsoNormal>{{request.patientLastName}}</p>
+  </td>
+ </tr>
+ <tr style='height:13.55pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Номер</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:1.45pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>пацієнта</span></b></p>
+  </td>
+  <td width=195 colspan=3 valign=top style='width:146.3pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+  <td width=123 valign=top style='width:91.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.05pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Дата</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:1.65pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>народження</span></b></p>
+  </td>
+  <td width=111 valign=top style='width:74.5pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal><span lang=EN-US>{{request.patientBirthDate.toLocaleDateString()}}</span></p>
+  </td>
+  <td width=122 valign=top style='width:91.5pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.45pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Вік:</span></b><b><span style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>{{request.patientAge}}</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:26.65pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Адреса</span></b></p>
+  </td>
+  <td width=195 colspan=3 valign=top style='width:146.3pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  background:#F7F8F9'>{{request.sickPatientAddress}}</span></p>
+  </td>
+  <td width=123 valign=top style='width:91.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.05pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Стать</span></b></p>
+  </td>
+  <td width=233 colspan=2 valign=top style='width:166.0pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=MsoListParagraph style='margin-left:18.4pt;text-indent:-13.2pt;
+  line-height:13.15pt'><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.1pt'>{{request.patientSex}}</span></p>
+  </td>
+ </tr>
+ <tr style='height:18.85pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:18.85pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Номер</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:1.55pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>телефону</span></b></p>
+  </td>
+  <td width=195 colspan=3 valign=top style='width:146.3pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:18.85pt'>
+  <p class=MsoNormal>{{request.patientPhone}}</p>
+  </td>
+  <td width=123 valign=top style='width:91.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:18.85pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+  <td width=233 colspan=2 valign=top style='width:166.0pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:18.85pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:13.45pt'>
+  <td width=692 colspan=8 valign=top style='width:510.35pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.45pt'>
+  <p class=TableParagraph align=center style='margin-left:15.8pt;text-align:
+  center;line-height:12.05pt'><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:-.05pt'>Інформація</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:1.15pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:-.05pt'>про</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:1.0pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:-.05pt'>зразок</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:26.2pt'>
+  <td width=62 valign=top style='width:46.5pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:26.2pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Тип</span></b></p>
+  </td>
+  <td width=630 colspan=7 valign=top style='width:463.85pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.2pt'>
+  <p class=TableParagraph style='margin-left:5.1pt;line-height:14.25pt'><span
+  style='font-size:10.5pt;font-family:"Times New Roman",serif'>{{request.materialType}}</span></p>
+  </td>
+ </tr>
+ <tr style='height:49.8pt'>
+  <td width=692 colspan=8 valign=top style='width:510.35pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:49.8pt'>
+  <p class=TableParagraph style='margin-top:.05pt;margin-right:70.3pt;
+  margin-bottom:0cm;margin-left:5.2pt;margin-bottom:.0001pt;line-height:102%'><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>До</span></b><b><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif;letter-spacing:.65pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif'>всіх<span
+  style='letter-spacing:.65pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>відібраних</span><span
+  style='letter-spacing:.75pt'>&nbsp;</span><span style='letter-spacing:-.1pt'>зразків</span><span
+  style='letter-spacing:.8pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>необхідно</span><span
+  style='letter-spacing:.65pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>ставитись</span>
+  <span style='letter-spacing:1.35pt'> </span></span></b><span lang=UK
+  style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.1pt'>як</span><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif;letter-spacing:.75pt'>&nbsp;</span><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>до</span><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif;letter-spacing:.8pt'>&nbsp;</span><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>потенційно</span><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif;letter-spacing:.7pt'>&nbsp;</span><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>інфікованих,</span><span lang=UK style='font-size:
+  10.5pt;line-height:102%;font-family:"Times New Roman",serif;letter-spacing:
+  .6pt'>&nbsp;</span><b><span lang=UK style='font-size:10.5pt;line-height:102%;
+  font-family:"Times New Roman",serif'>тому<span style='letter-spacing:.7pt'>&nbsp;</span>Ви<span
+  style='letter-spacing:2.45pt'>&nbsp;</span><u><span style='letter-spacing:-.05pt'>повинні</span><span
+  style='letter-spacing:.9pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>сконтактувати</span><span
+  style='letter-spacing:.75pt'>&nbsp;</span></u>з<span style='letter-spacing:.9pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>лабораторією</span><span style='letter-spacing:
+  .95pt'>&nbsp;</span><u><span style='letter-spacing:-.05pt'>ДО</span><span
+  style='letter-spacing:1.05pt'>&nbsp;</span></u><span style='letter-spacing:-.1pt'>надсилання</span><span
+  style='letter-spacing:.95pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>зразку</span>.</span></b></p>
+  <p class=TableParagraph style='margin-top:0cm;margin-right:2.7pt;margin-bottom:
+  0cm;margin-left:5.8pt;margin-bottom:.0001pt;line-height:102%'><span lang=UK
+  style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif'>Усі<span
+  style='letter-spacing:.7pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>зразки</span><span
+  style='letter-spacing:.8pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>повинні</span><span
+  style='letter-spacing:.7pt'>&nbsp;</span>бути<span style='letter-spacing:.7pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>надісланими</span><span style='letter-spacing:
+  .7pt'>&nbsp;</span>у<span style='letter-spacing:.75pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>відповідності</span><span style='letter-spacing:
+  .7pt'>&nbsp;</span>до<span style='letter-spacing:.75pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>вимог</span><span style='letter-spacing:.75pt'>
+  </span><span style='letter-spacing:-.05pt'>категорії</span><span
+  style='letter-spacing:.85pt'>&nbsp;</span><span style='letter-spacing:-.1pt'>«B»</span><span
+  style='letter-spacing:.55pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>настанов</span><span
+  style='letter-spacing:.6pt'>&nbsp;</span>з<span style='letter-spacing:.75pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>транспортування</span><span style='letter-spacing:
+  3.05pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>зразків.</span></span></p>
+  </td>
+ </tr>
+ <tr style='height:14.3pt'>
+  <td width=692 colspan=8 valign=top style='width:510.35pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:14.3pt'>
+  <p class=TableParagraph style='margin-left:5.2pt;line-height:13.0pt'><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif'>Будь<span
+  style='letter-spacing:.6pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>ласка,</span><span
+  style='letter-spacing:.7pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>зазначте,</span><span
+  style='letter-spacing:.75pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>якщо</span><span
+  style='letter-spacing:.5pt'>&nbsp;</span>зразок<span style='letter-spacing:.65pt'>
+  </span><span style='letter-spacing:-.05pt'>було</span><span style='letter-spacing:
+  .7pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>забрано</span><span
+  style='letter-spacing:.75pt'>&nbsp;</span><span style='letter-spacing:-.1pt'>після</span><span
+  style='letter-spacing:.65pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>смерті</span><span
+  style='letter-spacing:.65pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>пацієнта</span><span
+  style='letter-spacing:.55pt'>&nbsp;</span></span><span lang=UK style='font-size:
+  10.5pt;font-family:"MS Gothic"'>☐</span></p>
+  </td>
+ </tr>
+ <tr style='height:13.55pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Дата</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:1.1pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>забору</span></b></p>
+  </td>
+  <td width=195 colspan=3 valign=top style='width:146.3pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+  <td width=123 valign=top style='width:91.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.05pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif'>Час<span
+  style='letter-spacing:1.0pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>забору</span></span></b></p>
+  </td>
+  <td width=233 colspan=2 valign=top style='width:166.0pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:13.55pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Пріоритетність</span></b></p>
+  </td>
+  <td width=550 colspan=6 valign=top style='width:404.2pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:13.55pt'>
+  <td width=692 colspan=8 valign=top style='width:510.35pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:13.55pt'>
+  <p class=TableParagraph align=center style='margin-top:.1pt;margin-right:
+  0cm;margin-bottom:0cm;margin-left:.65pt;margin-bottom:.0001pt;text-align:
+  center'><b><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Клінічні</span></b><b><span lang=UK style='font-size:
+  10.5pt;font-family:"Times New Roman",serif;letter-spacing:1.15pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>дані</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:26.65pt'>
+  <td width=142 colspan=2 valign=top style='width:106.15pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:15.35pt;
+  margin-bottom:0cm;margin-left:5.2pt;margin-bottom:.0001pt;line-height:101%'><b><span
+  lang=UK style='font-size:10.5pt;line-height:101%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Дата</span></b><b><span lang=UK style='font-size:10.5pt;
+  line-height:101%;font-family:"Times New Roman",serif;letter-spacing:1.25pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;line-height:101%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>початку</span></b><b><span lang=UK style='font-size:
+  10.5pt;line-height:101%;font-family:"Times New Roman",serif;letter-spacing:
+  1.3pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;line-height:101%;
+  font-family:"Times New Roman",serif;letter-spacing:-.05pt'>захворювання:</span></b></p>
+  </td>
+  <td width=189 colspan=2 valign=top style='width:141.95pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=MsoNormal><span lang=UK>21-09-2020</span></p>
+  </td>
+  <td width=128 colspan=2 valign=top style='width:96.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+  <td width=233 colspan=2 valign=top style='width:166.0pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.65pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.3pt'>
+  <td width=257 colspan=3 rowspan=2 valign=top style='width:192.8pt;border:
+  solid black 1.0pt;border-top:none;padding:0cm 0cm 0cm 0cm;height:14.3pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:14.7pt;
+  margin-bottom:0cm;margin-left:5.2pt;margin-bottom:.0001pt;line-height:101%'><b><span
+  lang=UK style='font-size:10.5pt;line-height:101%;font-family:"Times New Roman",serif'>Чи<span
+  style='letter-spacing:.6pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>перебував</span><span
+  style='letter-spacing:.55pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>пацієнт</span><span
+  style='letter-spacing:.65pt'>&nbsp;</span>у<span style='letter-spacing:.4pt'>&nbsp;</span>країнах<span
+  style='letter-spacing:.5pt'>&nbsp;</span>з<span style='letter-spacing:1.15pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>місцевою</span><span style='letter-spacing:
+  1.3pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>передачею</span><span
+  style='letter-spacing:1.15pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>вірусу</span></span></b></p>
+  <p class=TableParagraph style='margin-left:5.2pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>SARS-CoV-2?</span></b></p>
+  </td>
+  <td width=74 rowspan=2 valign=top style='width:55.3pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:14.3pt'>
+  <p class=MsoListParagraph style='margin-left:18.3pt;text-indent:-13.2pt;
+  line-height:12.3pt'><span lang=UK style='font-size:10.5pt;font-family:"MS Gothic"'>□<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;</span></span><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif'>Так</span></p>
+  <p class=MsoListParagraph style='margin-left:18.3pt;text-indent:-13.2pt;
+  line-height:13.8pt'><span lang=UK style='font-size:10.5pt;font-family:"MS Gothic"'>□<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;</span></span><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif'>Ні</span></b></p>
+  </td>
+  <td width=128 colspan=2 valign=top style='width:96.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:14.3pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:2.55pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif'>Країна</span></b></p>
+  </td>
+  <td width=233 colspan=2 valign=top style='width:166.0pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:14.3pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:25.3pt'>
+  <td width=128 colspan=2 valign=top style='width:96.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:25.3pt'>
+  <p class=TableParagraph style='margin-top:.1pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Дата</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:1.6pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>повернення</span></b></p>
+  </td>
+  <td width=233 colspan=2 valign=top style='width:166.0pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:25.3pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:25.1pt'>
+  <td width=331 colspan=4 valign=top style='width:248.1pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:25.1pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:33.2pt;
+  margin-bottom:0cm;margin-left:5.2pt;margin-bottom:.0001pt;line-height:102%'><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif'>Чи<span
+  style='letter-spacing:.95pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>контактував</span><span
+  style='letter-spacing:1.15pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>пацієнт</span><span
+  style='letter-spacing:.85pt'>&nbsp;</span>з<span style='letter-spacing:.95pt'>&nbsp;</span><span
+  style='letter-spacing:-.05pt'>підтвердженим</span><span style='letter-spacing:
+  1.25pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>випадком?</span></span></b></p>
+  </td>
+  <td width=361 colspan=4 valign=top style='width:262.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:25.1pt'>
+  <p class=MsoListParagraph style='margin-left:18.25pt;text-indent:-13.15pt;
+  line-height:13.0pt'><span lang=UK style='font-size:10.5pt;font-family:"MS Gothic"'>□<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;</span></span><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Так</span><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:.8pt'>&nbsp;</span><span lang=UK style='font-size:10.5pt;
+  font-family:"MS Gothic";letter-spacing:-.1pt'>☐</span><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.1pt'>Ні</span><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:1.1pt'>&nbsp;</span><span lang=UK style='font-size:10.5pt;
+  font-family:"MS Gothic";letter-spacing:-.05pt'>☐</span><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Невідомо</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:25.2pt'>
+  <td width=331 colspan=4 valign=top style='width:248.1pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:25.2pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:20.85pt;
+  margin-bottom:0cm;margin-left:5.2pt;margin-bottom:.0001pt;line-height:102%'><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Назва</span></b><b><span lang=UK style='font-size:
+  10.5pt;line-height:102%;font-family:"Times New Roman",serif;letter-spacing:
+  .7pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;line-height:102%;
+  font-family:"Times New Roman",serif;letter-spacing:-.05pt'>установи,</span></b><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:.7pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif;letter-spacing:-.05pt'>лабораторії</span></b><b><span
+  lang=UK style='font-size:10.5pt;line-height:102%;font-family:"Times New Roman",serif;
+  letter-spacing:.9pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;
+  line-height:102%;font-family:"Times New Roman",serif'>,<span
+  style='letter-spacing:.75pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>що</span><span
+  style='letter-spacing:.95pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>проводила</span><span
+  style='letter-spacing:1.45pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>дослідження</span></span></b></p>
+  </td>
+  <td width=361 colspan=4 valign=top style='width:262.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:25.2pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:27.35pt'>
+  <td width=331 colspan=4 valign=top style='width:248.1pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:27.35pt'>
+  <p class=TableParagraph style='margin-left:5.2pt;line-height:12.05pt'><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Результат</span></b><b><span lang=UK style='font-size:
+  10.5pt;font-family:"Times New Roman",serif;letter-spacing:.95pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>дослідження</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  1.2pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.1pt'>на</span></b><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:1.15pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>COVID-19</span></b></p>
+  </td>
+  <td width=361 colspan=4 valign=top style='width:262.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:27.35pt'>
+  <p class=MsoListParagraph style='margin-left:18.25pt;text-indent:-13.15pt;
+  line-height:12.65pt'><span lang=UK style='font-size:10.5pt;font-family:"MS Gothic"'>□<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;</span></span><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Позитивний</span><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:2.25pt'>&nbsp;</span><span lang=UK
+  style='font-size:10.5pt;font-family:"MS Gothic";letter-spacing:-.05pt'>☐</span><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Сумнівний</span></p>
+  <p class=MsoListParagraph style='margin-left:18.25pt;text-indent:-13.15pt;
+  line-height:14.15pt'><span lang=UK style='font-size:10.5pt;font-family:"MS Gothic"'>□<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;</span></span><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Негативний</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.4pt'>
+  <td width=331 colspan=4 valign=top style='width:248.1pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:14.4pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Дата</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:1.25pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>отримання</span></b><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:1.45pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>результату</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  1.25pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:-.05pt'>дослідження</span></b></p>
+  </td>
+  <td width=361 colspan=4 valign=top style='width:262.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:14.4pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:26.75pt'>
+  <td width=331 colspan=4 valign=top style='width:248.1pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:26.75pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Метод</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:1.8pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>дослідження</span></b></p>
+  </td>
+  <td width=361 colspan=4 valign=top style='width:262.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:26.75pt'>
+  <p class=MsoListParagraph style='margin-left:18.25pt;text-indent:-13.15pt;
+  line-height:13.0pt'><span lang=UK style='font-size:10.5pt;font-family:"MS Gothic"'>□<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;</span></span><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.1pt'>ПЛР</span><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif'>
+  <span style='letter-spacing:1.3pt'> </span></span><span lang=UK
+  style='font-size:10.5pt;font-family:"MS Gothic"'>☐<span style='letter-spacing:
+  1.2pt'>&nbsp;</span></span><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Швидкий</span><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:.5pt'>&nbsp;</span><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>тест</span><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:.7pt'>&nbsp;</span><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>(імунохроматографія)</span><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  .55pt'>&nbsp;</span><span lang=UK style='font-size:10.5pt;font-family:"MS Gothic"'>☐</span><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>ІФА</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.85pt'>
+  <td width=331 colspan=4 valign=top style='width:248.1pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:32.85pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Комерційна</span></b><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:1.1pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>назва</span></b><b><span lang=UK style='font-size:
+  10.5pt;font-family:"Times New Roman",serif;letter-spacing:1.15pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>тест-системи</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  1.1pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif'>для<span
+  style='letter-spacing:1.15pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>виявлення,</span></span></b></p>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>виробник</span></b></p>
+  </td>
+  <td width=361 colspan=4 valign=top style='width:262.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:32.85pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:25.95pt'>
+  <td width=331 colspan=4 valign=top style='width:248.1pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:25.95pt'>
+  <p class=TableParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+  0cm;margin-left:5.2pt;margin-bottom:.0001pt'><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>Назва</span></b><b><span lang=UK style='font-size:10.5pt;font-family:
+  "Times New Roman",serif;letter-spacing:.85pt'>&nbsp;</span></b><b><span lang=UK
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+  -.05pt'>обладнання,</span></b><b><span lang=UK style='font-size:10.5pt;
+  font-family:"Times New Roman",serif;letter-spacing:1.0pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif'>на<span
+  style='letter-spacing:.85pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>якому</span><span
+  style='letter-spacing:1.0pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>проводилось</span><span
+  style='letter-spacing:1.45pt'>&nbsp;</span><span style='letter-spacing:-.05pt'>дослідження</span></span></b></p>
+  </td>
+  <td width=361 colspan=4 valign=top style='width:262.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:25.95pt'>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:56.35pt'>
+  <td width=142 colspan=2 valign=top style='width:106.35pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:56.35pt'>
+  <p class=MsoNormal><b><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>Додаткові</span></b><b><span lang=UK style='font-size:
+  10.5pt;font-family:"Times New Roman",serif;letter-spacing:1.25pt'>&nbsp;</span></b><b><span
+  lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  letter-spacing:-.05pt'>коментарі </span></b></p>
+  </td>
+  <td width=550 colspan=6 valign=top style='width:404.0pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:56.35pt'>
+  <p class=MsoNormal><span lang=UK>{{request.additinalInfo}}</span></p>
+  <p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr height=0>
+  <td width=62 style='border:none'></td>
+  <td width=80 style='border:none'></td>
+  <td width=115 style='border:none'></td>
+  <td width=74 style='border:none'></td>
+  <td width=6 style='border:none'></td>
+  <td width=123 style='border:none'></td>
+  <td width=111 style='border:none'></td>
+  <td width=122 style='border:none'></td>
+ </tr>
+ </tbody>
+</table>
+
+<p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-right:11.35pt'><b><span lang=UK
+style='font-family:"Times New Roman",serif'>Розділ таблиці “</span></b><b><span
+lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+-.05pt'>Інформація</span></b><b><span lang=UK style='font-size:10.5pt;
+font-family:"Times New Roman",serif;letter-spacing:1.35pt'>&nbsp;</span></b><b><span
+lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;letter-spacing:
+-.1pt'>про</span></b><b><span lang=UK style='font-size:10.5pt;font-family:"Times New Roman",serif;
+letter-spacing:1.15pt'>&nbsp;</span></b><b><span lang=UK style='font-size:10.5pt;
+font-family:"Times New Roman",serif;letter-spacing:-.05pt'>пацієнта”
+заповнюється лише друкованими літерами</span></b></p>
+
+</div>
+</div>

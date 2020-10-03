@@ -24,11 +24,12 @@ export class CovidRequest {
     // }
     patientCity: string;
     patientAddress: string;
+    patientPhone: string;
     additinalInfo: string;
     isDoctor: boolean;
     doctorProfession: string;
     materialType: string;
-    diagnos: string;
+    diagnos: string; // Пiдозрiлий чи Ймовiрний 
 
     constructor(id: number) {
         this.id = id;

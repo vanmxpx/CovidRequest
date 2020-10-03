@@ -1,5 +1,32 @@
 <div class="cov-page-print-wrapper">
     <div class="cov-page-print-content">
-
+        <div class="cov-page-print-item mat-elevation-z6" [class.selected]="selectedId === request.id" *ngFor="let request of requests"
+            (click)="selectedId !== -1 || selectRequestToView(request.id)">
+            <div class="cov-page-print-body">
+                <div class="close-button" *ngIf="selectedId === request.id">
+                    <button (click)="selectRequestToView(-1); $event.stopPropagation()" matTooltip="Закрити" mat-icon-button><mat-icon>close</mat-icon></button>
+                </div>
+                <cov-page-template [request]="request" [scale]="selectedId !== request.id ? 0.2 : 1"></cov-page-template> 
+            </div>
+            <div class="cov-page-print-footer">
+                <div class="navigation-button" *ngIf="selectedId === request.id">
+                    <button (click)="selectedId = selectedId - 1" [disabled]="selectedId === 0" mat-icon-button><mat-icon>arrow_back</mat-icon></button>
+                </div>
+                <div>
+                    <h4>{{ request.patientFirstName + " " + request.patientLastName }}</h4>
+                    <h5>Вiк: {{ request.patientAge }}</h5>
+                </div>
+                <div class="actions-container">
+                    <button *ngIf="selectedId === request.id" (click)="save(request)" mat-raised-button>Зберегти</button>
+                    <img src="assets/doc-icon.png">
+                </div>
+                <div class="navigation-button" *ngIf="selectedId === request.id">
+                    <button (click)="selectedId = selectedId + 1" [disabled]="selectedId === this.requests.length -1" mat-icon-button><mat-icon>arrow_forward</mat-icon></button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="requests?.length === 0">
+            <h3> Додайте заявки у попереднiй таблицi для генерацiї документiв на друк </h3>
+        </div>
     </div>
 </div>

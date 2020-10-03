@@ -150,6 +150,7 @@
     height: 100%;
 
     .table-control-editor {
+        min-width: 760px;
         height: calc(100% - 50px);
         overflow: auto;
     }
@@ -177,6 +178,7 @@
     }
 
     .action-buttons {
+        min-width: 620px;
         display: flex;
         align-items: center;
         justify-content: flex-end;

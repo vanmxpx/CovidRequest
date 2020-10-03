@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneratorPage } from '@cov/shared/constants/generator-page';
 import { covAnimations } from './cov-animations';
+import { CovidRequest } from '@cov/shared/models/BL/covid-request';
+import { cm } from '@cov/shared/constants/covud-mockups';
 
 @Component({
     selector: 'cov-generator',
@@ -11,6 +13,7 @@ import { covAnimations } from './cov-animations';
 export class CovGeneratorComponent implements OnInit {
     GeneratorPage = GeneratorPage;
     selectedPage: GeneratorPage = GeneratorPage.Table;
+    requests: CovidRequest[] = []; // cm;
     constructor() { }
 
     ngOnInit() {

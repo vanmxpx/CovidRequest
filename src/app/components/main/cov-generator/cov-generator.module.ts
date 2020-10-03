@@ -11,13 +11,15 @@ import { CovPageTableComponent } from './cov-page-table/cov-page-table.component
 import { CovPagePrintComponent } from './cov-page-print/cov-page-print.component';
 import { CovPageSecondaryTableComponent } from './cov-page-secondary-table/cov-page-secondary-table.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { CovPageTemplateComponent } from './cov-page-print/cov-page-template/cov-page-template.component';
 
 @NgModule({
   declarations: [
     CovGeneratorComponent,
     CovPageTableComponent,
     CovPageSecondaryTableComponent,
-    CovPagePrintComponent
+    CovPagePrintComponent,
+    CovPageTemplateComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
       CovGeneratorComponent,
       CovPageTableComponent,
       CovPageSecondaryTableComponent,
-      CovPagePrintComponent
+      CovPagePrintComponent,
+      CovPageTemplateComponent
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'never' } },

@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -34,8 +34,8 @@ export class CovPageTableComponent implements AfterViewInit {
     requestReasons = requestReasons;
     sexes = sexes;
     MainTableMode = MainTableMode;
-    mode: MainTableMode = MainTableMode.EditRow;
-    requests: CovidRequest[] = [];
+    mode: MainTableMode = MainTableMode.View;
+    @Input() public requests: CovidRequest[];
     covRequestColumns = covRequestColumns;
     fixedColumns = [];
     displayedColumns = [];
@@ -60,7 +60,7 @@ export class CovPageTableComponent implements AfterViewInit {
             sc = ['delete', 'id'];
         }
         this.fixedColumns = sc;
-        this.dataSource = new MatTableDataSource(this.requests);
+
 
         this.rowToEdit = new CovidRequest(0);
 
@@ -69,6 +69,7 @@ export class CovPageTableComponent implements AfterViewInit {
     }
 
     ngAfterViewInit(): void {
+        this.dataSource = new MatTableDataSource(this.requests);
         this.dataSource.sort = this.sort;
     }
 
@@ -101,7 +102,7 @@ export class CovPageTableComponent implements AfterViewInit {
             });
             return;
         }
-        this.rowToEdit = { id: this.rowToEdit.id, isDoctor: this.isPersonDoctor, ...this.requestForm.value };
+        this.rowToEdit = { id: this.rowToEdit.id, isDoctor: this.isPersonDoctor, ...this.requestForm.getRawValue() };
         let selectedItemIndex = this.requests.findIndex(r => r.id === this.rowToEdit.id);
         if (selectedItemIndex !== -1) {
             this.requests[selectedItemIndex] = _.cloneDeep(this.rowToEdit);
