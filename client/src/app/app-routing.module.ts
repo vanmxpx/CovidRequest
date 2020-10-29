@@ -9,7 +9,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 const routes: Routes = [{
         path: ROUTES.ROOT,
         component: MainComponent,
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         // children: [
         //     {
         //         path: ROUTES.GENERATOR,

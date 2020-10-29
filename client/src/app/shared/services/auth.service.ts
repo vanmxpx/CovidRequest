@@ -16,7 +16,7 @@ export class AuthService {
     private authorizedUser: LoginUser | null = null;
     jwtHelper: JwtHelperService;
     get authorized(): boolean {
-        return this.authorizedUser !== null && this.authorizedUser.token !== undefined && this.tokenExpired;
+        return this.authorizedUser !== null && this.authorizedUser.token && !this.tokenExpired;
     }
     get tokenExpired(): boolean {
         return this.jwtHelper.isTokenExpired(this.currentUser.token);
@@ -28,10 +28,10 @@ export class AuthService {
         private router: Router,
         private route: ActivatedRoute,
         private http: HttpClient,
-        @Inject('host') private host: string
+        @Inject('env') private env: any
     ) {
         this.jwtHelper = new JwtHelperService();
-        this.url = host + '/api/auth/';
+        this.url = env.host + '/api/auth';
         const jsonUser = localStorage.getItem(LocalStorageKey.CurrentUser);
         if (jsonUser) {
             this.authorizedUser = JSON.parse(jsonUser);
@@ -41,7 +41,7 @@ export class AuthService {
     public async ping(): Promise<boolean> {
         return true; // TODO: UNMOCK
         try {
-            await this.http.get(this.url + 'ping').toPromise();
+            await this.http.get(this.url + '/ping').toPromise();
         } catch (error) {
             if (error.status && error.status === 401) {
                 return false;
@@ -50,9 +50,19 @@ export class AuthService {
         return true;
     }
 
+    public async loginByGoogle(token: string): Promise<LoginUser> {
+        this.authorizedUser = await this.http.post<LoginUser>(this.url + '/google', { token }).toPromise();
+
+        if (!this.authorized) {
+            throw new Error('User is not authorized');
+        }
+
+        localStorage.setItem(LocalStorageKey.CurrentUser, JSON.stringify(this.authorizedUser));
+
+        return this.authorizedUser;
+    }
     public async auth(login: string, password: string): Promise<LoginUser> {
         this.authorizedUser = await this.http.post<LoginUser>(this.url, { username: login, password }).toPromise();
-        this.authorizedUser.login = login;
 
         if (!this.authorized) {
             throw new Error('User is not authorized');

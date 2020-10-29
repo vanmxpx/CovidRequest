@@ -1,0 +1,36 @@
+.nav-header-wrapper { 
+    width: 100vw;
+    height: 50px;
+}
+
+.nav-header-container { 
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-header-logo { 
+    span {
+        font-size: 40px;
+    }
+}
+
+
+.profile-menu-container { 
+    width: 32px;
+    height: 32px;
+
+    .profile-image { 
+        width: 32px;
+        height: 32px;
+    
+        img { 
+            width: 32px;
+            height: 32px; 
+            border-radius: 50%;
+        }
+    }
+}
+

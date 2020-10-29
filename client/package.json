@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~10.1.3",
     "@angular/router": "~10.1.3",
     "@auth0/angular-jwt": "^5.0.1",
+    "@types/gapi.auth2": "0.0.52",
     "docxtemplater": "^3.19.6",
     "file-saver": "^2.0.2",
     "lodash": "^4.17.20",

@@ -4,11 +4,12 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../services/auth.service';
+import { NotificationsService } from '../services/notifications.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
     constructor(
-        private snackBar: MatSnackBar,
+        private notifications: NotificationsService,
         private authService: AuthService
     ) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -18,9 +19,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                     return throwError(err);
                 }
 
-                this.snackBar.open('Error on sending request: ' + err.statusText || err.message || err , 'OK', {
-                    duration: 5000
-                });
+                // this.notifications.error('Error on sending request: ' + err.statusText || err.message || err);
 
                 return throwError(err);
         }));

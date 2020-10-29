@@ -9,10 +9,12 @@ import { CovDirectivesModule } from '@cov/shared/directives/cov-directves.module
 import { MaterialModule } from '@cov/material.module';
 import { CovGeneratorComponent } from './cov-generator/cov-generator.component';
 import { CovGeneratorModule } from './cov-generator/cov-generator.module';
+import { CovNavHeaderComponent } from './cov-nav-header/cov-nav-header.component';
 
 @NgModule({
   declarations: [
-    MainComponent
+    MainComponent,
+    CovNavHeaderComponent
   ],
   imports: [
     CovGeneratorModule,

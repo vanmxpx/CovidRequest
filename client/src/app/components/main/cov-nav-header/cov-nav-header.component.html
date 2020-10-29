@@ -1,0 +1,28 @@
+<div class="nav-header-wrapper">
+  <div class="nav-header-container">
+    <div class="nav-header-logo"><span>Doct</span></div>
+    <div class="nav-header-menu"></div>
+    <div class="profile-actions">
+      <div class="profile-menu-container"> 
+        <div class="profile-image" [matMenuTriggerFor]="menu">
+          <img [src]="profileImage || 'assets/icon.png'">
+        </div>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Мои налаштування</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Вийти</span>
+          </button>
+        </mat-menu>
+      </div>
+
+    </div>
+  </div>
+</div>

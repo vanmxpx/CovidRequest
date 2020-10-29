@@ -1,24 +1,21 @@
-$primary-color: #27c1f1;
-$secondary-color: teal;
-$secondary-color-shadow: rgba(0, 128, 128, 0.7);
-$secondary-color-disabled: gray;
+$primary-color: cadetblue;
+$secondary-color:#ebf1f4; // #fafafa; // 
+$secondary-color-gradient: #c1c6c8; // #d5d5d5; //
 
-$background-color: whitesmoke;
-$background-color-dark: #ebebeb;
-$background-focused-color: #f5f5f5;
+$background-color: #ebf1f4; // #fafafa; //
+// $background-color-dark: #ebebeb;
+// $background-focused-color: #f5f5f5;
 
-$border-color: #d9d9d9;
+$border-color: #d1d9e6;
 
-$font-light-color: #ffffff;
+$font-primary: #ffffff;
+$font-secondary: #757575;
+
+$font-white-color: #ffffff;
 $font-dark-color: #000;
-$font-gray-color: #808080;
 
 $error-color: #a94442;
 
 $delete-color: #e34d4b;
 
 $warning-color: #e34d4b;
-$nav-header-button-color: #428bca;
-$nav-header-button-disabled-color: gray;
-
-$shadow: 0px 6px 5px 0px rgba(2, 2, 2, 0.13);

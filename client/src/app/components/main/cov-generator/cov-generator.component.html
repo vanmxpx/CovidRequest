@@ -1,16 +1,16 @@
 <mat-drawer-container class="cov-generator-drawer-container">
-    <mat-drawer mode="side" opened>
+    <mat-drawer class="neo-card" mode="side" opened>
         <div class="cov-generator-navigation-bar">
             <div class="cov-generator-navigation-bar-content mat-typography">
                 <div class="profile-image"><img src="assets/icon.png"></div>
                 <div class="cov-generator-navigation-bar-navigation">
-                    <div class="cov-generator-navigation-bar-button"
+                    <div class="cov-generator-navigation-bar-button neo-button neo-bordered"
                         [class.selected]="selectedPage === GeneratorPage.Table" matTooltip="Список"
                         matTooltipPosition="right" (click)="selectPage(GeneratorPage.Table)">
                         <mat-icon>toc</mat-icon>
                     </div>
                     <div class="cov-generator-navigation-bar-item-separator"></div>
-                    <div class="cov-generator-navigation-bar-button"
+                    <div class="cov-generator-navigation-bar-button neo-button neo-bordered"
                         [class.selected]="selectedPage === GeneratorPage.Print" matTooltip="Печать"
                         matTooltipPosition="right" (click)="selectPage(GeneratorPage.Print)">
                         <mat-icon>description</mat-icon>

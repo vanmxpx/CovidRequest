@@ -3,7 +3,8 @@
 .cov-generator-drawer-container {
   width: 100%;
   height: 100%;
-
+  background: $background-color;
+  
   mat-drawer {
     overflow: hidden;
     width: 120px;
@@ -11,6 +12,10 @@
   mat-drawer-content { 
       background-color: $background-color;
   }
+}
+
+.mat-drawer-content {
+  z-index: initial;
 }
 
 .cov-generator-navigation-bar {
@@ -34,7 +39,7 @@
       margin: 10px;
       width: 90px;
       height: 90px;
-      border: 3px solid $secondary-color;
+      border: 3px solid $primary-color;
       border-radius: 50%;
       img { 
           height: 100%;
@@ -54,7 +59,7 @@
     cursor: pointer;
     width: 40px;
     height: 40px;
-    color: $secondary-color;
+    color: $primary-color;
     display: flex;
     justify-content: center;
     font-family: system-ui;

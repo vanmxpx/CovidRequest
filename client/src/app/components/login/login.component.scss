@@ -6,11 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-mat-divider {
-    margin: 20px 0;
-    width: 100%;
+    background: $background-color;
 }
 
 .login-container {
@@ -19,17 +15,9 @@ mat-divider {
     justify-content: center;
     align-items: center;
 
-    max-width: 400px;
+    width: 330px;
     padding: 30px;
 
-    border-radius: 9px;
-    background-color: $background-color;
-    box-shadow: $shadow;
-
-    .login-profile-img {
-        cursor: pointer;
-        margin: 0 26px 10px 26px;
-    }
     .login-form {
         display: flex;
         flex-direction: column;
@@ -41,15 +29,15 @@ mat-divider {
             }
         }
         mat-label {
-            color: $font-gray-color;
-            font-weight: bold;
+            color: #757575;
+            font-weight: 600;
             font-size: 18px;
         }
         mat-error {
             color: $error-color;
         }
         .hide-password-button {
-            color: $font-gray-color;
+            color: $font-secondary;
             font-size: 22px;
         }
     }
@@ -57,14 +45,10 @@ mat-divider {
 
 .login-signin-button {
     padding: 0px;
-    font-weight: 700;
-    font-size: 14px;
     height: 36px;
-    width: 100%;
-    border-radius: 10px;
+    width: 100px;
+    color: $font-white-color;
     background-color: $primary-color;
-    color: $font-light-color;
-    border: none;
   }
 
 .loading {

@@ -1,0 +1,36 @@
+
+@import "./variables";
+
+.neo-bordered { 
+    border: 1px solid $border-color !important;
+}
+
+.neo-primary { 
+    background: $secondary-color;
+}
+
+.neo-button { 
+    border-radius: 10px;
+    box-shadow:  4px 4px 9px #bcc8cf, 
+                -4px -4px 9px #feffff;
+}
+
+.neo-button:hover {
+    box-shadow: inset 6px 6px 12px #b3bec5, 
+    inset -6px -6px 12px #ffffff;
+}
+
+
+.neo-card { 
+    border-radius: 50px;
+    background: $secondary-color;
+    box-shadow:  40px 40px 72px $secondary-color-gradient, 
+             -40px -40px 72px #ffffff;
+}
+
+.neo-card-concave{ 
+    border-radius: 50px;
+    background:  linear-gradient(145deg, $secondary-color, #ffffff);
+    box-shadow:  40px 40px 72px $secondary-color-gradient, 
+             -40px -40px 72px #ffffff;
+}

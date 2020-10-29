@@ -9,13 +9,13 @@ if (environment.production) {
 }
 
 
-export function host(): string {
-    return environment.host;
+export function getEnvironment(): any {
+    return environment;
 }
 
 const providers = [
-    { provide: 'host', useFactory: host, deps: [] }
+    { provide: 'env', useFactory: getEnvironment, deps: [] }
 ];
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+platformBrowserDynamic(providers).bootstrapModule(AppModule)
     .catch(err => console.error(err));

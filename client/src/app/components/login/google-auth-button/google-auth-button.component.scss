@@ -1,0 +1,27 @@
+@import 'variables';
+
+.abcRioButtonContentWrapper {
+    margin-top: 15px;
+    cursor: pointer;
+    display: block;
+    height: 36px;
+    text-align: center;
+    user-select: none;
+    white-space: nowrap;
+    width: 120;
+}
+
+.abcRioButtonIcon {
+    float: left;
+}
+
+.abcRioButtonContents {
+    font-size: 14px;
+    font-weight: 600;
+    line-height:34px;
+    letter-spacing: .21px;
+    margin-left: 4px;
+    margin-right: 9px;
+    vertical-align: top;
+    color: $font-secondary;
+}
