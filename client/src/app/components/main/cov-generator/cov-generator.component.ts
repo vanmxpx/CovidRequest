@@ -3,6 +3,7 @@ import { GeneratorPage } from '@cov/shared/constants/generator-page';
 import { covAnimations } from './cov-animations';
 import { CovidRequest } from '@cov/shared/models/BL/covid-request';
 import { cm } from '@cov/shared/constants/covud-mockups';
+import { NavigationService } from './navigation.service';
 
 @Component({
     selector: 'cov-generator',
@@ -14,7 +15,9 @@ export class CovGeneratorComponent implements OnInit {
     GeneratorPage = GeneratorPage;
     selectedPage: GeneratorPage = GeneratorPage.Table;
     requests: CovidRequest[] = []; // cm;
-    constructor() { }
+    constructor(
+        public navigationService: NavigationService
+    ) { }
 
     ngOnInit() {
     }
@@ -25,13 +28,13 @@ export class CovGeneratorComponent implements OnInit {
     }
 
     calculatePosition(index: number): 'center' | 'top' | 'bottom' {
-        if (index === this.selectedPage) { 
+        if (index === this.selectedPage) {
             return 'center';
         }
-        if (index > this.selectedPage) { 
+        if (index > this.selectedPage) {
             return 'bottom';
         }
-        if (index < this.selectedPage) { 
+        if (index < this.selectedPage) {
             return 'top';
         }
 

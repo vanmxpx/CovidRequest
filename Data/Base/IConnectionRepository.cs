@@ -16,7 +16,7 @@ namespace CovidRequest.Data.Base
         void AddRange(IEnumerable<TEntity> entity);
         IEnumerable<TEntity> Find(Func<TEntity, bool> predicator);
         IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
-        void Update(TEntity entity);
+        TEntity Update(TEntity entity);
         void Delete(long id1, long id2);
         DbSet<TEntity> Collection { get; }
     }

@@ -14,5 +14,9 @@ namespace CovidRequest.Data.Models
         public bool EmailVerified { get; set; }
         public string? Phone { get; set; }
         public bool PhoneVerified { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime ModifiedAt { get; set; }       
+        public long CreatedBy { get; set; }
+        public long ModifiedBy { get; set; }
     }
 }

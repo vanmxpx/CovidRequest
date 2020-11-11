@@ -1,38 +1,46 @@
 @import "variables";
 
-.cov-generator-drawer-container {
+.cov-generator-wrapper {
   width: 100%;
   height: 100%;
   background: $background-color;
-  
-  mat-drawer {
-    overflow: hidden;
-    width: 120px;
-  }
-  mat-drawer-content { 
-      background-color: $background-color;
-  }
-}
 
-.mat-drawer-content {
-  z-index: initial;
 }
 
 .cov-generator-navigation-bar {
+  position: fixed;
+  background: #444343;
+  border-radius: 10px 0 0 10px;
+  right: 0;
+  bottom: 25px;
+  width: 450px;
+  height: 65px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  flex-direction: row;
+
+  transition: all 0.7 ease;
+
+  .closed { 
+    width: 24px;
+  }
+
+  .close-button { 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-right: white solid 1px;
+  }
     
   .cov-generator-navigation-bar-content {
     width: 100%;
     height: 100%;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .profile-image { 
@@ -45,14 +53,6 @@
           height: 100%;
           width: 100%;
       }
-  }
-
-  .cov-generator-navigation-bar-navigation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 85px;
   }
 
   .cov-generator-navigation-bar-button {
@@ -73,7 +73,7 @@
     mat-icon { 
         margin-left: 2px;
     }
-    
+
     &.selected {
       width: 50px;
       height: 50px;
@@ -86,11 +86,21 @@
       }
     }
   }
+    
+  .cov-generator-navigation-bar-button {
+    background: white;
+    &:hover {
+      box-shadow: inset 6px 6px 12px #b3bec5, inset -6px -6px 12px #ffffff;
+    }
 
-  .cov-generator-navigation-bar-button:not(.selected):hover {
-    transform: translateX(3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    &:not(.selected):hover {
+      transform: translateY(-3px);
+      //box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    }
   }
+
+
+
 
   .cov-generator-navigation-bar-item-separator {
     background: lightpink;

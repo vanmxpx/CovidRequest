@@ -1,10 +1,12 @@
 .nav-header-wrapper { 
     width: 100vw;
     height: 50px;
+    border-radius: 0px;
 }
 
 .nav-header-container { 
     height: 50px;
+    margin: 0 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,6 +29,7 @@
         height: 32px;
     
         img { 
+            cursor: pointer;
             width: 32px;
             height: 32px; 
             border-radius: 50%;

@@ -12,5 +12,9 @@ namespace CovidRequest.Data.Models
         public string? City { get; set; }
         public string? Position { get; set; }
         public string? Clinic { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime ModifiedAt { get; set; }       
+        public long CreatedBy { get; set; }
+        public long ModifiedBy { get; set; }
     }
 }

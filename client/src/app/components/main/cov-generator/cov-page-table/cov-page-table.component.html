@@ -1,13 +1,17 @@
 <div class="cov-page-table-wrapper">
     <div class="cov-page-table-content">
-        <div class="neo-card neo-bordered table-control-container" 
+        <div class="neo-bordered table-control-container" 
              [class.margin-left]="mode === MainTableMode.View"
              [class.margin-right]="mode === MainTableMode.EditRow">
             <div class="table-control-table" [@changePane]="{ value: calculateAnimation('left') }">
                 <div class="table-control-actions">
                     <span class="text-action mat-typography" (click)="resetTable()">Вiдновити таблицю</span>
+                    <button class="add-record-button neo-button neo-bordered" mat-icon-button
+                        (click)="openEditor(null)">
+                        <mat-icon matTooltip="Додати нову заяву">add</mat-icon>
+                    </button>
                     <div>
-                        <button class="neo-button neo-bordered" mat-icon-button [matMenuTriggerFor]="displayColMenu" matTooltip="Видимi колонки">
+                        <button class="action-button neo-button neo-bordered" mat-icon-button [matMenuTriggerFor]="displayColMenu" matTooltip="Видимi колонки">
                             <mat-icon>filter_alt</mat-icon>
                         </button>
                         <mat-menu #displayColMenu="matMenu">
@@ -24,7 +28,7 @@
                                 </mat-list-option>
                             </mat-selection-list>
                         </mat-menu>
-                        <button class="neo-button neo-bordered" mat-icon-button [matMenuTriggerFor]="pinMenu" matTooltip="Статичнi колонки">
+                        <button class="action-button neo-button neo-bordered" mat-icon-button [matMenuTriggerFor]="pinMenu" matTooltip="Статичнi колонки">
                             <mat-icon>push_pin</mat-icon>
                         </button>
                         <mat-menu #pinMenu="matMenu">
@@ -249,7 +253,7 @@
                     </table>
                 </div>
             </div>
-            <div class="table-control-switcher">
+            <!-- <div class="table-control-switcher">
                 <div class="placeholder">
                     <mat-icon *ngIf="mode === MainTableMode.EditRow" [matBadge]="this.requests.length"
                         matBadgeColor="warn">toc</mat-icon>
@@ -264,7 +268,7 @@
                         <mat-icon matTooltip="Очистити шаблон" >delete_forever</mat-icon>
                     </button>
                 </div>
-            </div>
+            </div> -->
             <div class="table-control-editor-wrapper" [@changePane]="{ value: calculateAnimation('right') }">
                 <div class="table-control-editor">
                     <form [formGroup]="requestForm">

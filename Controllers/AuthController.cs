@@ -93,17 +93,27 @@ namespace CovidRequest.Controllers
                 {
                     FirstName = profile.Name,
                     LastName = profile.FamilyName,
-                    PhotoUrl = profile.Picture
+                    PhotoUrl = profile.Picture,
+                    ModifiedAt = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                 };
 
                 newProfile = profilesRepository.Add(newProfile);
+                newProfile.CreatedBy = newProfile.Id;
+                newProfile.ModifiedBy = newProfile.Id;
+                
+                profilesRepository.Update(newProfile);
 
                 newCreds = new Credentials()
                 {
                     Provider = CredentialsProvider.Google,
                     Email = profile.Email,
                     EmailVerified = profile.EmailVerified,
-                    PersonalInfoRef = newProfile.Id
+                    PersonalInfoRef = newProfile.Id,
+                    ModifiedAt = DateTime.Now,
+                    ModifiedBy = newProfile.Id,
+                    CreatedAt = DateTime.Now,
+                    CreatedBy = newProfile.Id,
                 };
 
                 newCreds = credsRepository.Add(newCreds);
@@ -195,7 +205,8 @@ namespace CovidRequest.Controllers
                     Phone = creds.Phone,
                     PhoneVerified = creds.PhoneVerified,
                     Login = creds.Login,
-                    PersonalInfoRef = creds.PersonalInfoRef
+                    PersonalInfoRef = creds.PersonalInfoRef,
+                    Token = accountService.Authenticate(creds.PersonalInfoRef, creds.Email)
                 };
 
                 return Ok(user);
@@ -209,13 +220,14 @@ namespace CovidRequest.Controllers
         )
         {
             var claimsIdentity = this.User.Identity as ClaimsIdentity;
-            var userId = Convert.ToInt64(claimsIdentity.FindFirst(ClaimTypes.Sid)?.Value);
-
-            if (entity.Id != userId)
+            var profileId = Convert.ToInt64(claimsIdentity.FindFirst(ClaimTypes.Sid)?.Value);
+            var creds = credsRepository.Get(entity.Id);
+            if (creds.PersonalInfoRef != profileId)
             {
                 return Forbid();
             }
-
+            entity.ModifiedAt = DateTime.Now;
+            entity.ModifiedBy = profileId;
             credsRepository.Update(entity);
             return Ok();
         }

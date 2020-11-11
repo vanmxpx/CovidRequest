@@ -142,6 +142,12 @@ namespace CovidRequest
                 app.UseSpaStaticFiles();
             }
             app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/auth/swagger/v1/swagger.json", "Authorizartion API V1");
+            });
+
+
             app.UseRouting();
 
             app.UseAuthentication();

@@ -57,17 +57,9 @@ namespace CovidRequest.Data.Base
         {
             try
             {
-                var value = Get(entity.Id);
-                if (value == null)
-                {
-                    var result = Collection.Add(entity);
-                    context.SaveChanges();
-                    return result.Entity;
-                }
-                else
-                {
-                    return value;
-                }
+                var result = Collection.Add(entity);
+                context.SaveChanges();
+                return result.Entity;
 
             }
             catch (Exception e)
@@ -90,12 +82,13 @@ namespace CovidRequest.Data.Base
                 throw;
             }
         }
-        public virtual void Update(TEntity entity)
+        public virtual TEntity Update(TEntity entity)
         {
             try
             {
-                Collection.Update(entity);
+                entity = Collection.Update(entity).Entity;
                 context.SaveChanges();
+                return entity;
             }
             catch (Exception e)
             {
