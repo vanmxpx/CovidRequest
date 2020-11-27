@@ -38,9 +38,6 @@ export class LoginComponent {
     }
     async sendGoogleData(googleUser: gapi.auth2.GoogleUser) {
         try {
-            this.router.navigate([this.returnUrl || ROUTES.ROOT]);
-            return;
-            
             let res = await this.authService.loginByGoogle(googleUser.getAuthResponse().id_token);
             if (res) {
                 this.router.navigate([this.returnUrl || ROUTES.ROOT]);
