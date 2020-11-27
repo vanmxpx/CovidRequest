@@ -1,0 +1,56 @@
+@import 'variables';
+
+.registration-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $background-color;
+}
+
+.registration-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 330px;
+    padding: 30px;
+
+    .registration-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        mat-form-field {
+            margin-bottom: 15px;
+            input {
+                padding-top: 5px;
+            }
+        }
+        mat-label {
+            color: #757575;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        mat-error {
+            color: $error-color;
+        }
+        .hide-password-button {
+            color: $font-secondary;
+            font-size: 22px;
+        }
+    }
+}
+
+.registration-stepper-button {
+    padding: 0px;
+    height: 36px;
+    width: 100px;
+    color: $font-white-color;
+    background-color: $primary-color;
+  }
+
+.loading {
+    margin-bottom: 10px;
+}

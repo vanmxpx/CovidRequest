@@ -7,6 +7,7 @@ namespace CovidRequest.Data.Models
     public class Credentials: EntityBase
     {
         public long PersonalInfoRef { get; set; }
+        public long AccountingRef { get; set; }
         public CredentialsProvider Provider { get; set; }
         public string? Login { get; set; }
         public string Password { get; set; }

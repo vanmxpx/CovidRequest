@@ -49,6 +49,9 @@ namespace CovidRequest
             services.AddScoped<IDBSeeder, CredentialsSeeder>();
             services.AddScoped<IDBRepository<CovidRequest.Data.Models.Profile>, ProfileRepository>();
             services.AddScoped<IDBRepository<Credentials>, CredentialsRepository>();
+            services.AddScoped<IDBRepository<CovRequest>, CovRequestRepository>();
+            services.AddScoped<IDBRepository<Accounting>, AccountingRepository>();
+            services.AddScoped<IDBRepository<Payment>, PaymentRepository>();
 
             if (Env.IsDevelopment())
             {

@@ -11,6 +11,7 @@ import { LoginModule } from './components/login/login.module';
 import { JwtModule } from '@auth0/angular-jwt/lib/angular-jwt.module';
 import { MainModule } from './components/main/main.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { RegistrationModule } from './components/registration/registration.module';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
         MaterialModule,
         BrowserModule,
         LoginModule,
+        RegistrationModule,
         AppRoutingModule,
         BrowserAnimationsModule
     ],

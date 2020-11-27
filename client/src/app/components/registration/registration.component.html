@@ -1,0 +1,85 @@
+<div class="registration-wrapper">
+  <div class="registration-container neo-card neo-bordered">
+    <mat-horizontal-stepper linear="true" #stepper>
+      <mat-step [stepControl]="accountGroup" label="Аккаунт">
+        <form [formGroup]="accountGroup">
+          <div class="registration-step-content">
+            <p>Заповніть інформацію про аккаунт.</p>
+            <mat-form-field floatLabel="always">
+              <mat-label>Пошта</mat-label>
+              <input matInput formControlName="email">
+              <mat-error *ngIf="accountControl('email')?.hasError('required')">
+                Пошта обов'язкова.
+              </mat-error>
+              <mat-error *ngIf="accountControl('email')?.hasError('email')">
+                Пошта невалідна.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field floatLabel="always">
+              <mat-label>Телефон</mat-label>
+              <input maxlength="9" matInput formControlName="phone">
+              <span matSuffix>
+                +380
+              </span>
+              <mat-error *ngIf="accountControl('phone')?.hasError('required')">
+                Телефон обов'язковий.
+              </mat-error>
+              <mat-error *ngIf="accountControl('phone')?.hasError('minlength')">
+                Телефон невалідний.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field floatLabel="always">
+              <mat-label>Пароль</mat-label>
+              <input matInput formControlName="password"
+                [type]="hide ? 'password' : 'text'">
+              <button class="hide-password-button" mat-icon-button matSuffix (click)="hide = !hide">
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              <mat-error *ngIf="accountControl('password')?.hasError('required')">
+                Пароль обов'язковий.
+              </mat-error>
+              <mat-error *ngIf="accountControl('password')?.hasError('minlength')">
+                Пароль має бути принаймні 9 символів.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field floatLabel="always">
+              <mat-label>Підтвердіть пароль</mat-label>
+              <input matInput formControlName="passwordRepeat"
+                [type]="hide ? 'password' : 'text'">
+              <button class="hide-password-button" mat-icon-button matSuffix (click)="hide = !hide">
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              <mat-error *ngIf="passwordRepeatValid">
+                Паролі не співпадають.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="stepper-actions">
+            <button mat-button matStepperNext>Далі</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="profileGroup" label="Профіль">
+        <form [formGroup]="profileGroup">
+          <div class="step-content">
+            <p>Теперь заповніть інформацію про лікаря.</p>
+          </div>
+          <div class="stepper-actions">
+            <button mat-button matStepperPrevious>Назад</button>
+            <button mat-button matStepperNext>Далі</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <div class="step-content">
+          Виберіть
+        </div>
+        <mat-progress-bar class="loading" *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <div class="stepper-actions">
+          <button mat-button matStepperPrevious>Назад</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+
+  </div>
+</div>

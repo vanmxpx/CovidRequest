@@ -21,21 +21,17 @@
             </div> -->
         </div>
 
-        <div class="cov-generator-navigation-bar mat-elevation-z6">
-            <div class="close-button">
-                <mat-icon *ngIf="navigationService.generatorToolbarOpened">keyboard_arrow_left</mat-icon>
-                <mat-icon *ngIf="navigationService.generatorToolbarOpened">keyboard_arrow_right</mat-icon>
-            </div>
+        <div class="cov-generator-navigation-bar mat-elevation-z6" [class.closed]="!navigationService.generatorToolbarOpened">
             <div class="cov-generator-navigation-bar-content mat-typography">
                     <div class="cov-generator-navigation-bar-button neo-bordered"
                         [class.selected]="selectedPage === GeneratorPage.Table" matTooltip="Список"
-                        matTooltipPosition="top" (click)="selectPage(GeneratorPage.Table)">
+                        matTooltipPosition="above" (click)="selectPage(GeneratorPage.Table)">
                         <mat-icon>toc</mat-icon>
                     </div>
                     <div class="cov-generator-navigation-bar-item-separator"></div>
                     <div class="cov-generator-navigation-bar-button neo-bordered"
                         [class.selected]="selectedPage === GeneratorPage.Print" matTooltip="Печать"
-                        matTooltipPosition="top" (click)="selectPage(GeneratorPage.Print)">
+                        matTooltipPosition="above" (click)="selectPage(GeneratorPage.Print)">
                         <mat-icon>description</mat-icon>
                     </div>
                     <!-- <div class="cov-generator-navigation-bar-item-separator"></div>
@@ -45,6 +41,10 @@
                         3
                     </div> -->
             </div>
+            <div class="close-button" (click)="navigationService.toogleGeneratorToolbar(true)">
+                <mat-icon *ngIf="navigationService.generatorToolbarOpened">keyboard_arrow_left</mat-icon>
+                <mat-icon *ngIf="!navigationService.generatorToolbarOpened">keyboard_arrow_right</mat-icon>
+            </div> 
         </div>
 
 </div>

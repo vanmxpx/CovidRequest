@@ -25,6 +25,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatTabsModule} from '@angular/material/tabs';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatBadgeModule } from '@angular/material/badge';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
     exports: [
@@ -53,7 +54,8 @@ import { MatBadgeModule } from '@angular/material/badge';
         DragDropModule,
         MatTabsModule,
         MatRippleModule,
-        MatBadgeModule
+        MatBadgeModule,
+        MatStepperModule
     ],
     providers: [
         { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'never' } },

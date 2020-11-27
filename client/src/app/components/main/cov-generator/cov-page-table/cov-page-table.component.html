@@ -89,7 +89,7 @@
                             [stickyEnd]="isSticky('registrationDate')">
                             <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef>
                                 Реєстрація </th>
-                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.registrationDate.toLocaleDateString()}}
+                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.registrationDateString}}
                             </td>
                         </ng-container>
 
@@ -139,7 +139,7 @@
                             [stickyEnd]="isSticky('sickPatienDate')">
                             <th class="padding-column" mat-sort-header mat-header-cell cdkDrag *matHeaderCellDef> Взяття
                                 зразку </th>
-                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.sickPatienDate.toLocaleDateString()}}
+                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.sickPatienDateString}}
                             </td>
                         </ng-container>
 
@@ -182,7 +182,7 @@
                                 народження
                                 пацієнта
                             </th>
-                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientBirthDate.toLocaleDateString()}}
+                            <td class="padding-column" mat-cell *matCellDef="let element"> {{element.patientBirthDateString}}
                             </td>
                         </ng-container>
 
@@ -406,11 +406,11 @@
                                     Поле обов'язкове
                                 </mat-error>
                                 <mat-datepicker-toggle matSuffix [for]="patientBirthPicker"></mat-datepicker-toggle>
-                                <mat-datepicker #patientBirthPicker></mat-datepicker>
+                                <mat-datepicker startView="multi-year" [startAt]="startBirthDate" #patientBirthPicker></mat-datepicker>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Вік</mat-label>
-                                <input formControlName="patientAge" matInput>
+                                <input autocomplete="off" formControlName="patientAge" matInput>
                             </mat-form-field>
                             <mat-form-field appearance="fill">
                                 <mat-label>Місто/Район мешкання</mat-label>
@@ -418,6 +418,14 @@
                                     <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
                                 </mat-select>
                                 <mat-error *ngIf="requestControl('patientCity')?.hasError('required')">
+                                    Поле обов'язкове
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Телефон</mat-label>
+                                <input formControlName="patientPhone" matInput>
+                                <span matPrefix>+380&nbsp;</span>
+                                <mat-error *ngIf="requestControl('patientPhone')?.hasError('required')">
                                     Поле обов'язкове
                                 </mat-error>
                             </mat-form-field>
@@ -429,8 +437,20 @@
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field class="big-size" appearance="fill">
-                                <mat-label>Додаткова інформація</mat-label>
+                                <mat-label>Клінічі дані</mat-label>
                                 <textarea formControlName="additinalInfo" matInput></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row">
+                            <section *ngIf="this.rowToEdit">
+                                <!-- <mat-label>Медичний працівник</mat-label> -->
+                                <mat-checkbox [ngModelOptions]="{standalone: true}"
+                                    [(ngModel)]="this.rowToEdit.patientWasAbroad">
+                                    Чи перебував пацієнт у країнах з місцевою передачею вірусу?</mat-checkbox>
+                            </section>
+                            <mat-form-field *ngIf="this.rowToEdit?.isDoctor" appearance="fill">
+                                <mat-label>Посада</mat-label>
+                                <input formControlName="doctorProfession" matInput>
                             </mat-form-field>
                         </div>
                         <div class="form-row">

@@ -40,7 +40,7 @@ namespace CovidRequest.DataSeed
             {
                 PersonalInfoRef = 2,
                 Login = "test",
-                Email = "nikita1996.tsyhankov@gmial.com",
+                Email = "nikita1996.tsyhankov@gmail.com",
                 Password = "test"
             };
             repository.Add(item2);

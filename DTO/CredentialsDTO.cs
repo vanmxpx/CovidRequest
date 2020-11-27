@@ -5,9 +5,9 @@ namespace CovidRequest.DTO
 {
     public class CredentialsDTO
     {
-        public long Id { get; set; }
         public CredentialsProvider Provider { get; set; }
         public long PersonalInfoRef { get; set; }
+        public long AccountingRef { get; set; }
         public string Email { get; set; }
         public bool EmailVerified { get; set; }
         public string Login { get; set; }

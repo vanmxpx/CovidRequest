@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { CovGeneratorComponent } from './components/main/cov-generator/cov-generator.component';
 import { MainComponent } from './components/main/main.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 import { ROUTES } from './routes';
 import { AuthGuard } from './shared/guards/auth.guard';
 
@@ -20,6 +21,7 @@ const routes: Routes = [{
         // ]
     },
     { path: ROUTES.LOGIN, component: LoginComponent },
+    { path: ROUTES.REGISTRATION, component: RegistrationComponent },
     { path: '**', redirectTo: ROUTES.ROOT, pathMatch: 'full' },
 ];
 @NgModule({

@@ -12,6 +12,7 @@ import { CovPagePrintComponent } from './cov-page-print/cov-page-print.component
 import { CovPageSecondaryTableComponent } from './cov-page-secondary-table/cov-page-secondary-table.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { CovPageTemplateComponent } from './cov-page-print/cov-page-template/cov-page-template.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CovPageTemplateComponent } from './cov-page-print/cov-page-template/cov
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'never' } },
+    { provide: MAT_DATE_LOCALE, useValue: 'uk-UA' }
   ]
 })
 export class CovGeneratorModule { }

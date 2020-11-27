@@ -8,23 +8,31 @@
 .cov-page-print-wrapper {
     width: 100%;
     height: 100%;
-
+    &.expanded { 
+        position: fixed;
+        top: 0;
+    }
 }
 
 .cov-page-print-content {
     width: 100%;
     height: 100%;
-    overflow: hidden;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cov-page-print-content-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
 
+    margin: 10px;
+
     background-color: $background-color; // thistle
 }
-
 .cov-page-print-item {
     width: 250px;
     height: 250px;
@@ -65,7 +73,8 @@
         display: flex;
         justify-content: space-between;
 
-        h4 {
+        h4, h5 {
+            margin-top: 0px;
             margin-bottom: 0px;
         }
 
@@ -88,6 +97,20 @@
     &:not(.selected):hover {
         cursor: pointer;
         background: azure;
+    }
+}
+
+.cov-page-print-full-actions { 
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    button { 
+        margin: 0 5px;
+    }
+    img {
+        padding: 3px;
+        width: 44px;
+        height: 44px;
     }
 }
 

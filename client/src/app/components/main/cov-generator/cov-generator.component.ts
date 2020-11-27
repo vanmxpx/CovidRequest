@@ -14,7 +14,7 @@ import { NavigationService } from './navigation.service';
 export class CovGeneratorComponent implements OnInit {
     GeneratorPage = GeneratorPage;
     selectedPage: GeneratorPage = GeneratorPage.Table;
-    requests: CovidRequest[] = []; // cm;
+    requests: CovidRequest[] = cm(); // []; // 
     constructor(
         public navigationService: NavigationService
     ) { }
@@ -24,7 +24,10 @@ export class CovGeneratorComponent implements OnInit {
 
     selectPage(selectedView: GeneratorPage): void {
         this.selectedPage = selectedView;
+    }
 
+    toogleToolbar() {
+        this.navigationService.toogleGeneratorToolbar(true);
     }
 
     calculatePosition(index: number): 'center' | 'top' | 'bottom' {
@@ -37,6 +40,5 @@ export class CovGeneratorComponent implements OnInit {
         if (index < this.selectedPage) {
             return 'top';
         }
-
     }
 }

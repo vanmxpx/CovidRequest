@@ -8,21 +8,21 @@
 .cov-page-table-wrapper {
     width: 100%;
     height: 100%;
+    background-color: $background-color;
 }
 
 .cov-page-table-content {
     width: 100%;
     height: 100%;
     overflow: hidden;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background-color: $background-color;
 }
 
 .table-control-container {
+    padding: 0 50px;
+    width: calc(100% - 100px);
     min-height: 680px;
     height: 95%;
     background-color: white;

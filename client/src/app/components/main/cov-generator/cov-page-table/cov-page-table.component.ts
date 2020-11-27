@@ -18,6 +18,7 @@ import { covAnimations } from '../cov-animations';
 import { covRequestColumns } from './cov-request-columns';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as _ from 'lodash';
+import { NavigationService } from '../navigation.service';
 
 @Component({
     selector: 'cov-page-table',
@@ -27,6 +28,7 @@ import * as _ from 'lodash';
 })
 export class CovPageTableComponent implements AfterViewInit {
     @ViewChild(MatSort) sort: MatSort;
+    startBirthDate = new Date(1990, 0, 1);
     cities = cities;
     diagnoses = diagnoses;
     doctorTypes = doctorTypes;
@@ -48,7 +50,8 @@ export class CovPageTableComponent implements AfterViewInit {
 
     constructor(
         private lsService: LocalStorageService,
-        private snackBar: MatSnackBar
+        private snackBar: MatSnackBar,
+        public navigationService: NavigationService
     ) {
         let dc: string[] = lsService.loadFromLS(LocalStorgeKey.DispalyedColumns);
         if (!dc) {
@@ -77,18 +80,19 @@ export class CovPageTableComponent implements AfterViewInit {
         if (request === null) {
             request = new CovidRequest(this.requests.length);
             if (this.templateRequest) {
-                request = { ...request, ...this.templateRequest };
+                request.loadTemplate(this.templateRequest);
             }
         }
+        this.navigationService.closeGeneratorToolbar();
         this.rowToEdit = _.cloneDeep(request);
         this.createRequestGroup();
         this.mode = MainTableMode.EditRow;
     }
     closeEditor(): void {
-        if (this.requestForm.dirty && !confirm('Несохраненные изменения будут отменены. Продолжить?')) {
+        if (this.requestForm.dirty && !confirm('Незбережені зміни будуть видалені. Продовжити?')) {
             return;
         }
-
+        this.navigationService.openGeneratorToolbar();
         this.rowToEdit = null;
         this.mode = MainTableMode.View;
     }
@@ -123,6 +127,7 @@ export class CovPageTableComponent implements AfterViewInit {
             this.mode = MainTableMode.View;
         }
 
+        this.navigationService.openGeneratorToolbar();
     }
 
     deleteRequest(request: CovidRequest) {

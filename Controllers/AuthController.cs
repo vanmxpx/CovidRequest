@@ -25,6 +25,7 @@ namespace CovidRequest.Controllers
     public class AuthController : Controller
     {
         private readonly IDBRepository<Credentials> credsRepository;
+        private readonly IDBRepository<Accounting> accountingRepository;
         private readonly IDBRepository<Profile> profilesRepository;
         private readonly ILogger<AuthController> logger;
         private readonly IAccountService accountService;
@@ -32,6 +33,7 @@ namespace CovidRequest.Controllers
 
         public AuthController(
             IDBRepository<Credentials> credsRepository,
+            IDBRepository<Accounting> accountingRepository,
             IDBRepository<Profile> profilesRepository,  
             ILogger<AuthController> logger,
             IAccountService accountService,
@@ -39,6 +41,7 @@ namespace CovidRequest.Controllers
         )
         {
             this.credsRepository = credsRepository;
+            this.accountingRepository = accountingRepository;
             this.profilesRepository = profilesRepository;
             this.logger = logger;
             this.accountService = accountService;
@@ -133,53 +136,76 @@ namespace CovidRequest.Controllers
             }
         }
 
+        
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public async Task<IActionResult> RegisterPatinet(RegisterProfileDTO profileDTO)
+        {
+            if (profileDTO == null)
+                return BadRequest();
 
+            Profile newProfile = new Profile()
+            {
+                FirstName = profileDTO.FirstName,
+                LastName = profileDTO.LastName,
+                FatherName = profileDTO.FatherName,
+                PhotoUrl = profileDTO.PhotoUrl,
+                ModifiedAt = DateTime.Now,
+                CreatedAt = DateTime.Now,
+                City = profileDTO.City,
+                Position = profileDTO.Position,
+                Clinic = profileDTO.Clinic
+            };
 
-        // [AllowAnonymous]
-        // [HttpPost("register")]
-        // public async Task<IActionResult> Register(AccountDTO accountDTO)
-        // {
-        //     if (accountDTO == null)
-        //         return BadRequest();
+            newProfile = profilesRepository.Add(newProfile);
+            newProfile.CreatedBy = newProfile.Id;
+            newProfile.ModifiedBy = newProfile.Id;
+                
+            profilesRepository.Update(newProfile);
 
-        //     AuthRequest authRequest = new AuthRequest()
-        //     {
-        //         FirstName = accountDTO.FirstName,
-        //         LastName = accountDTO.LastName,
-        //         FatherName = accountDTO.FatherName,
-        //         Sex = accountDTO.Sex,
-        //         Bith = accountDTO.Bith.ToString(),
-        //         PhotoUrl = accountDTO.PhotoUrl,
-        //         Email = accountDTO.Email,
-        //         Phone = accountDTO.Phone
-        //     };
+            Accounting accounting = new Accounting()
+            {
+                RequestsLeft = 10,
+                Subscription = Subscription.Free,
+                CreatedAt = DateTime.Now,
+                ModifiedAt = DateTime.Now,
+                CreatedBy = newProfile.Id,
+                ModifiedBy = newProfile.Id
+            };
 
-        //     string idPatient = _gRPCAuthClient.AddPatient(authRequest);
-        //     ApplicationUser user = new ApplicationUser
-        //     {
-        //         UserName = accountDTO.Email,
-        //         PersonId = idPatient,
-        //         Role = MISUserRole.PATIENT,
-        //         Password = _accountService.GetHashString(accountDTO.Password),
-        //         Email = accountDTO.Email,
-        //         CreateTimeEmail = DateTime.Now,
-        //         ModifiedTimeEmail = DateTime.Now,
-        //         ConfirmedEmail = false,
-        //         Phone = accountDTO.Phone,
-        //         CreateTimePhone = DateTime.Now,
-        //         ModifiedTimePhone = DateTime.Now,
-        //         ConfirmedPhone = false
-        //     };
-        //     var result = await _userManager.CreateAsync(user);
-        //     if (result.Succeeded)
-        //     {
-        //         await signInManager.SignInAsync(user, false);
-        //         user.Password = null;
-        //         user.Token = _accountService.Authenticate(idPatient, user.Email, user.Role);
-        //         return Ok(user);
-        //     }
-        //     return Ok(string.Join(",", result.Errors?.Select(error => error.Description)));
-        // }
+            accounting = accountingRepository.Add(accounting);
+                    
+            Credentials user = new Credentials
+            {
+                Provider = CredentialsProvider.Internal,
+                PersonalInfoRef = newProfile.Id,
+                AccountingRef = accounting.Id,
+                Password = accountService.GetHashString(profileDTO.Password),
+                Email = profileDTO.Email,
+                EmailVerified = false,
+                Phone = profileDTO.Phone,
+                PhoneVerified = false,
+                CreatedAt = DateTime.Now,
+                ModifiedAt = DateTime.Now,
+                CreatedBy = newProfile.Id,
+                ModifiedBy = newProfile.Id
+            };
+            user = credsRepository.Add(user);
+
+            CredentialsDTO dto = new CredentialsDTO
+            {
+                Provider = user.Provider,
+                PersonalInfoRef = user.PersonalInfoRef,
+                AccountingRef = user.AccountingRef,
+                Email = user.Email,
+                EmailVerified = user.EmailVerified,
+                Phone = user.Phone,
+                PhoneVerified = user.PhoneVerified,
+            };
+
+            dto.Token = accountService.Authenticate(user.PersonalInfoRef, user.Email);
+            return Ok(dto);
+        }
 
         [HttpPost]
         [AllowAnonymous]

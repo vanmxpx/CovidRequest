@@ -16,19 +16,19 @@ export class NavigationService {
         if (!this.generatorToolbarOpened)
             return;
 
-        this.generatorToolbarFixed = true;
+        this.generatorToolbarFixed = userInitiated;
         this.generatorToolbarOpened = false;
     }
 
     public openGeneratorToolbar(userInitiated: boolean = false): void {
-        if (this.generatorToolbarFixed && !userInitiated)
+        if (!userInitiated && this.generatorToolbarFixed)
             return;
 
         this.generatorToolbarFixed = false;
         this.generatorToolbarOpened = true;
     }
     public toogleGeneratorToolbar(userInitiated: boolean = false): void {
-        this.generatorToolbarFixed = !this.generatorToolbarOpened;
         this.generatorToolbarOpened = !this.generatorToolbarOpened;
+        this.generatorToolbarFixed = !this.generatorToolbarOpened && userInitiated;
     }
 }

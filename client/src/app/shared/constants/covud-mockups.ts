@@ -1,53 +1,229 @@
-export const cm = [{ 
-    id: 0,
-    city: "test",
-    zoz: "test",
-    zozAddress: "test",
-    registrationDate: new Date(),
-    senderFullName: "test",
-    senderProfession: "test",
-    requestReason: "test",
-    sickPatientFullName: "test",
-    sickPatientAddress: "test",
-    sickPatienDate: new Date(),
-    patientFirstName:  "Teeest",
-    patientLastName: "Teeest",
-    patientMiddleName: "test",
-    patientSex: "test",
-    patientBirthDate: new Date(),
-    patientAge: 20,
-    patientCity: "test",
-    patientAddress: "test",
-    patientPhone: "test",
-    additinalInfo: "test",
-    isDoctor: false,
-    doctorProfession: "test",
-    materialType: "test",
-    diagnos: "test"
-},{ 
-    id: 1,
-    city: "test",
-    zoz: "test",
-    zozAddress: "test",
-    registrationDate: new Date(),
-    senderFullName: "test",
-    senderProfession: "test",
-    requestReason: "test",
-    sickPatientFullName: "test",
-    sickPatientAddress: "test",
-    sickPatienDate: new Date,
-    patientFirstName:  "ASDASDASD",
-    patientLastName: "asdasdasdasd",
-    patientMiddleName: "test",
-    patientSex: "test",
-    patientBirthDate: new Date(),
-    patientAge: 20,
-    patientCity: "test",
-    patientAddress: "test",
-    patientPhone: "test",
-    additinalInfo: "test",
-    isDoctor: false,
-    doctorProfession: "test",
-    materialType: "test",
-    diagnos: "test"
-}]
+import { CovidRequest } from '../models/BL/covid-request';
+
+export const cm = () => {
+    let reqs = [];
+    let request = new CovidRequest(0);
+
+    request.city = "test";
+    request.zoz = "test";
+    request.zozAddress = "test";
+    request.registrationDate = new Date();
+    request.senderFullName = "test";
+    request.senderProfession = "test";
+    request.requestReason = "test";
+    request.sickPatientFullName = "test";
+    request.sickPatientAddress = "test";
+    request.sickPatienDate = new Date();
+    request.patientFirstName =  "Teeest";
+    request.patientLastName = "Teeest";
+    request.patientMiddleName = "test";
+    request.patientSex = "test";
+    request.patientBirthDate = new Date();
+    request.patientAge = 20;
+    request.patientCity = "test";
+    request.patientAddress = "test";
+    request.patientPhone = "test";
+    request.additinalInfo = "test";
+    request.isDoctor = false;
+    request.doctorProfession = "test";
+    request.materialType = "test";
+    request.diagnos = "test";
+
+    reqs.push(request);
+
+    request.id = 1;
+    request.city = "test";
+    request.zoz = "test";
+    request.zozAddress = "test";
+    request.registrationDate = new Date();
+    request.senderFullName = "test";
+    request.senderProfession = "test";
+    request.requestReason = "test";
+    request.sickPatientFullName = "test";
+    request.sickPatientAddress = "test";
+    request.sickPatienDate = new Date;
+    request.patientFirstName =  "ASDASDASD";
+    request.patientLastName = "asdasdasdasd";
+    request.patientMiddleName = "test";
+    request.patientSex = "test";
+    request.patientBirthDate = new Date();
+    request.patientAge = 20;
+    request.patientCity = "test";
+    request.patientAddress = "test";
+    request.patientPhone = "test";
+    request.additinalInfo = "test";
+    request.isDoctor = false;
+    request.doctorProfession = "test";
+    request.materialType = "test";
+    request.diagnos = "test";
+
+    reqs.push(request);
+
+    request.id = 1;
+    request.city = "test";
+    request.zoz = "test";
+    request.zozAddress = "test";
+    request.registrationDate = new Date();
+    request.senderFullName = "test";
+    request.senderProfession = "test";
+    request.requestReason = "test";
+    request.sickPatientFullName = "test";
+    request.sickPatientAddress = "test";
+    request.sickPatienDate = new Date;
+    request.patientFirstName =  "ASDASDASD";
+    request.patientLastName = "asdasdasdasd";
+    request.patientMiddleName = "test";
+    request.patientSex = "test";
+    request.patientBirthDate = new Date();
+    request.patientAge = 20;
+    request.patientCity = "test";
+    request.patientAddress = "test";
+    request.patientPhone = "test";
+    request.additinalInfo = "test";
+    request.isDoctor = false;
+    request.doctorProfession = "test";
+    request.materialType = "test";
+    request.diagnos = "test";
+
+    reqs.push(request);
+
+    request.id = 1;
+    request.city = "test";
+    request.zoz = "test";
+    request.zozAddress = "test";
+    request.registrationDate = new Date();
+    request.senderFullName = "test";
+    request.senderProfession = "test";
+    request.requestReason = "test";
+    request.sickPatientFullName = "test";
+    request.sickPatientAddress = "test";
+    request.sickPatienDate = new Date;
+    request.patientFirstName =  "ASDASDASD";
+    request.patientLastName = "asdasdasdasd";
+    request.patientMiddleName = "test";
+    request.patientSex = "test";
+    request.patientBirthDate = new Date();
+    request.patientAge = 20;
+    request.patientCity = "test";
+    request.patientAddress = "test";
+    request.patientPhone = "test";
+    request.additinalInfo = "test";
+    request.isDoctor = false;
+    request.doctorProfession = "test";
+    request.materialType = "test";
+    request.diagnos = "test";
+
+    reqs.push(request);
+
+    request.id = 1;
+    request.city = "test";
+    request.zoz = "test";
+    request.zozAddress = "test";
+    request.registrationDate = new Date();
+    request.senderFullName = "test";
+    request.senderProfession = "test";
+    request.requestReason = "test";
+    request.sickPatientFullName = "test";
+    request.sickPatientAddress = "test";
+    request.sickPatienDate = new Date;
+    request.patientFirstName =  "ASDASDASD";
+    request.patientLastName = "asdasdasdasd";
+    request.patientMiddleName = "test";
+    request.patientSex = "test";
+    request.patientBirthDate = new Date();
+    request.patientAge = 20;
+    request.patientCity = "test";
+    request.patientAddress = "test";
+    request.patientPhone = "test";
+    request.additinalInfo = "test";
+    request.isDoctor = false;
+    request.doctorProfession = "test";
+    request.materialType = "test";
+    request.diagnos = "test";
+
+    reqs.push(request);
+
+    request.id = 1;
+    request.city = "test";
+    request.zoz = "test";
+    request.zozAddress = "test";
+    request.registrationDate = new Date();
+    request.senderFullName = "test";
+    request.senderProfession = "test";
+    request.requestReason = "test";
+    request.sickPatientFullName = "test";
+    request.sickPatientAddress = "test";
+    request.sickPatienDate = new Date;
+    request.patientFirstName =  "ASDASDASD";
+    request.patientLastName = "asdasdasdasd";
+    request.patientMiddleName = "test";
+    request.patientSex = "test";
+    request.patientBirthDate = new Date();
+    request.patientAge = 20;
+    request.patientCity = "test";
+    request.patientAddress = "test";
+    request.patientPhone = "test";
+    request.additinalInfo = "test";
+    request.isDoctor = false;
+    request.doctorProfession = "test";
+    request.materialType = "test";
+    request.diagnos = "test";
+
+    reqs.push(request);
+
+    request.id = 1;
+    request.city = "test";
+    request.zoz = "test";
+    request.zozAddress = "test";
+    request.registrationDate = new Date();
+    request.senderFullName = "test";
+    request.senderProfession = "test";
+    request.requestReason = "test";
+    request.sickPatientFullName = "test";
+    request.sickPatientAddress = "test";
+    request.sickPatienDate = new Date;
+    request.patientFirstName =  "ASDASDASD";
+    request.patientLastName = "asdasdasdasd";
+    request.patientMiddleName = "test";
+    request.patientSex = "test";
+    request.patientBirthDate = new Date();
+    request.patientAge = 20;
+    request.patientCity = "test";
+    request.patientAddress = "test";
+    request.patientPhone = "test";
+    request.additinalInfo = "test";
+    request.isDoctor = false;
+    request.doctorProfession = "test";
+    request.materialType = "test";
+    request.diagnos = "test";
+
+    reqs.push(request);
+
+    request.id = 1;
+    request.city = "test";
+    request.zoz = "test";
+    request.zozAddress = "test";
+    request.registrationDate = new Date();
+    request.senderFullName = "test";
+    request.senderProfession = "test";
+    request.requestReason = "test";
+    request.sickPatientFullName = "test";
+    request.sickPatientAddress = "test";
+    request.sickPatienDate = new Date;
+    request.patientFirstName =  "ASDASDASD";
+    request.patientLastName = "asdasdasdasd";
+    request.patientMiddleName = "test";
+    request.patientSex = "test";
+    request.patientBirthDate = new Date();
+    request.patientAge = 20;
+    request.patientCity = "test";
+    request.patientAddress = "test";
+    request.patientPhone = "test";
+    request.additinalInfo = "test";
+    request.isDoctor = false;
+    request.doctorProfession = "test";
+    request.materialType = "test";
+    request.diagnos = "test";
+
+    return reqs;
+};
