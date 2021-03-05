@@ -21,7 +21,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
 }
+
 .cov-page-print-content-items {
     display: flex;
     flex-wrap: wrap;
