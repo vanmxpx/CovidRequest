@@ -9,7 +9,7 @@ export const cm = () => {
     request.zozAddress = "Dnipro city, Malin st., 54 h.";
     request.registrationDate = new Date();
     request.senderFullName = "Thyhankov Mykyta Dmytrovich";
-    request.senderProfession = "Family Docto ";
+    request.senderProfession = "Family Doctor ";
     request.requestReason = "Stomachache";
     request.sickPatientFullName = "test";
     request.sickPatientAddress = "test";
@@ -37,7 +37,7 @@ export const cm = () => {
     request.zozAddress = "Dnipro city, Malin st., 54 h.";
     request.registrationDate = new Date();
     request.senderFullName = "Thyhankov Mykyta Dmytrovich";
-    request.senderProfession = "Family Docto ";
+    request.senderProfession = "Family Doctor ";
     request.requestReason = "Stomachache";
     request.sickPatientFullName = "test";
     request.sickPatientAddress = "test";
@@ -65,7 +65,7 @@ export const cm = () => {
     request.zozAddress = "Dnipro city, Malin st., 54 h.";
     request.registrationDate = new Date();
     request.senderFullName = "Thyhankov Mykyta Dmytrovich";
-    request.senderProfession = "Family Docto ";
+    request.senderProfession = "Family Doctor ";
     request.requestReason = "Stomachache";
     request.sickPatientFullName = "test";
     request.sickPatientAddress = "test";
@@ -93,7 +93,7 @@ export const cm = () => {
     request.zozAddress = "Dnipro city, Malin st., 54 h.";
     request.registrationDate = new Date();
     request.senderFullName = "Thyhankov Mykyta Dmytrovich";
-    request.senderProfession = "Family Docto ";
+    request.senderProfession = "Family Doctor ";
     request.requestReason = "Stomachache";
     request.sickPatientFullName = "test";
     request.sickPatientAddress = "test";
@@ -121,7 +121,7 @@ export const cm = () => {
     request.zozAddress = "Dnipro city, Malin st., 54 h.";
     request.registrationDate = new Date();
     request.senderFullName = "Thyhankov Mykyta Dmytrovich";
-    request.senderProfession = "Family Docto ";
+    request.senderProfession = "Family Doctor ";
     request.requestReason = "Stomachache";
     request.sickPatientFullName = "test";
     request.sickPatientAddress = "test";
@@ -149,7 +149,7 @@ export const cm = () => {
     request.zozAddress = "Dnipro city, Malin st., 54 h.";
     request.registrationDate = new Date();
     request.senderFullName = "Thyhankov Mykyta Dmytrovich";
-    request.senderProfession = "Family Docto ";
+    request.senderProfession = "Family Doctor ";
     request.requestReason = "Stomachache";
     request.sickPatientFullName = "test";
     request.sickPatientAddress = "test";
@@ -177,7 +177,7 @@ export const cm = () => {
     request.zozAddress = "Dnipro city, Malin st., 54 h.";
     request.registrationDate = new Date();
     request.senderFullName = "Thyhankov Mykyta Dmytrovich";
-    request.senderProfession = "Family Docto ";
+    request.senderProfession = "Family Doctor ";
     request.requestReason = "Stomachache";
     request.sickPatientFullName = "test";
     request.sickPatientAddress = "test";
@@ -205,7 +205,7 @@ export const cm = () => {
     request.zozAddress = "Dnipro city, Malin st., 54 h.";
     request.registrationDate = new Date();
     request.senderFullName = "Thyhankov Mykyta Dmytrovich";
-    request.senderProfession = "Family Docto ";
+    request.senderProfession = "Family Doctor ";
     request.requestReason = "Stomachache";
     request.sickPatientFullName = "test";
     request.sickPatientAddress = "test";
