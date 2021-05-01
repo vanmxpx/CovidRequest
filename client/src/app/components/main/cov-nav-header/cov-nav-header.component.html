@@ -8,17 +8,17 @@
           <img [src]="profileImage || 'assets/icon.png'">
         </div>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+       <!-- <button mat-menu-item>
             <mat-icon>dialpad</mat-icon>
             <span>Redial</span>
           </button>
           <button mat-menu-item disabled>
             <mat-icon>voicemail</mat-icon>
             <span>Мои налаштування</span>
-          </button>
+          </button> -->
           <button mat-menu-item>
             <mat-icon>notifications_off</mat-icon>
-            <span>Вийти</span>
+            <span><a routerLink="[ROUTES.LOGIN]">Вийти</a></span>
           </button>
         </mat-menu>
       </div>
